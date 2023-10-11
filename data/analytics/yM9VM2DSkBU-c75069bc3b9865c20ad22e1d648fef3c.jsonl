@@ -1,0 +1,12 @@
+{"when": 56826, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:11:14.207665+00:00"}
+{"when": 58311, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:11:15.726117+00:00"}
+{"when": 58311, "chapter": 0, "event": "message", "type": "user", "text": "Hello!", "datetime": "2023-10-11T05:11:17.222842+00:00"}
+{"when": 58311, "chapter": 0, "event": "message", "type": "ai", "text": "Hello there! How can I assist you with the lecture today? Do you have any specific questions or concepts you're finding difficult to understand?", "datetime": "2023-10-11T05:11:20.781737+00:00"}
+{"when": 20573, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:11:43.200807+00:00"}
+{"when": 21963, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:11:44.622285+00:00"}
+{"when": 22012, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:11:51.374088+00:00"}
+{"when": 24759, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:11:54.151656+00:00"}
+{"when": 24787, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:11:54.830107+00:00"}
+{"when": 27276, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:11:57.321465+00:00"}
+{"when": 27304, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:12:22.118714+00:00"}
+{"when": 33882, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:12:28.697642+00:00"}

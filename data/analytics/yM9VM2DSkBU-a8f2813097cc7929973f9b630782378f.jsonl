@@ -1,0 +1,19 @@
+{"when": 18, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:01:22.775504"}
+{"when": 586, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:01:23.404893"}
+{"when": 637, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:01:28.106779"}
+{"when": 2521, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:01:29.995515"}
+{"when": 2550, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:01:37.684744"}
+{"when": 3702, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:01:38.843988"}
+{"when": 3830, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:01:39.579185"}
+{"when": 5041, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:01:40.796740"}
+{"when": 5110, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:01:42.990668"}
+{"when": 7543, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:01:45.430432"}
+{"when": 7678, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:01:48.574873"}
+{"when": 17710, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:01:58.635749"}
+{"when": 17771, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:02:00.545128"}
+{"when": 19518, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:02:02.297875"}
+{"when": 19518, "chapter": 0, "event": "message", "type": "user", "text": "Help", "datetime": "2023-10-11T05:02:02.936363"}
+{"when": 19546, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:03:01.657961+00:00"}
+{"when": 28093, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:03:10.238011+00:00"}
+{"when": 28183, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:03:20.205641+00:00"}
+{"when": 29945, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:03:21.970712+00:00"}

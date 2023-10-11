@@ -1,0 +1,478 @@
+WEBVTT
+
+00:00.000 --> 00:03.600
+Hello everyone and welcome back to Web Security.
+
+00:03.600 --> 00:08.480
+In this video I'm going to be talking to you all about the Structured Query Language, commonly
+
+00:08.480 --> 00:11.220
+referred to as SQL.
+
+00:11.220 --> 00:19.120
+So SQL, Structured Query Language, is a very commonly used language for manipulating and
+
+00:19.120 --> 00:21.860
+accessing and querying data.
+
+00:21.860 --> 00:26.280
+So SQL is a language in and of itself, of course, you know, Structured Query Language.
+
+00:26.600 --> 00:32.560
+It is a language and if you want to understand how web applications work, particularly those
+
+00:32.560 --> 00:37.080
+that use Structured Query Language, which is again very common for manipulating and
+
+00:37.080 --> 00:43.740
+accessing data, we need to understand what it is that the Structured Query Language is.
+
+00:43.740 --> 00:50.180
+So I'm going to be talking to you all about the basics of Structured Query Language, SQL.
+
+00:50.180 --> 00:56.220
+So the first operation that is very important and good to know about is the create table
+
+00:56.220 --> 00:57.220
+operation.
+
+00:57.220 --> 01:05.760
+So SQL operates off of a paradigm of you have these databases and within those databases
+
+01:05.760 --> 01:10.800
+you have tables and then within those tables you have rows and you have columns.
+
+01:10.800 --> 01:15.980
+So you can kind of think of something like some sort of spreadsheet application, right?
+
+01:15.980 --> 01:19.760
+You can have a bunch of pages in your spreadsheet application and you have rows and columns
+
+01:19.840 --> 01:22.080
+with holding data.
+
+01:22.080 --> 01:25.060
+So the first thing we want to be able to do is we want to be able to create a table that's
+
+01:25.060 --> 01:26.800
+going to store data.
+
+01:26.800 --> 01:32.000
+So in order to do that we're going to use the create table operation and we're going
+
+01:32.000 --> 01:40.000
+to specify some table name as well as some column names and potentially column attributes.
+
+01:40.000 --> 01:44.920
+So for example, if we want to create some users table, we run the create table users
+
+01:45.040 --> 01:50.240
+and then we're specifying username and password as two of the columns within that.
+
+01:50.240 --> 01:55.720
+And in doing so we've suddenly birthed a new table within our database called users and
+
+01:55.720 --> 01:59.920
+it's ready to have a bunch of users with a username and password.
+
+01:59.920 --> 02:04.660
+So right now we've just got an empty table with users, username and password are the
+
+02:04.660 --> 02:11.240
+attributes, the columns of a particular user which is some row within that users table.
+
+02:11.240 --> 02:17.360
+So now if you want to add some data to that table, we want to use the insert into function
+
+02:17.360 --> 02:22.960
+which is we can insert into some table name values and then specify the values you want
+
+02:22.960 --> 02:26.400
+to insert in, in order of those columns.
+
+02:26.400 --> 02:33.520
+So for example, if we want to insert the admin admin user, we can run insert into users values
+
+02:33.520 --> 02:34.960
+admin admin.
+
+02:34.960 --> 02:40.680
+Note the double quotes here or you could use single quotes but we are inserting the string
+
+02:40.800 --> 02:47.880
+values into our table and suddenly we have a concept of a user, some data backing a user
+
+02:47.880 --> 02:53.880
+concept where we have one of them which is an admin whose username is admin and whose
+
+02:53.880 --> 02:56.880
+password is admin as well.
+
+02:56.880 --> 03:00.760
+And if we want to continue on to insert more data into this table, right every, every time
+
+03:00.760 --> 03:04.920
+we perform one of these operations, we're inserting another row into the table.
+
+03:04.920 --> 03:11.000
+Now we have Connor password 123 and finally we add Canac with Hunter2 as a password.
+
+03:11.000 --> 03:15.960
+So we've got this table set up with some data with three users in it, each with a unique
+
+03:15.960 --> 03:20.680
+username and password and you know you could imagine now we're ready to start having a
+
+03:20.680 --> 03:21.760
+web application, right?
+
+03:21.760 --> 03:26.320
+You can imagine some web application had a create user page and when you went to create
+
+03:26.320 --> 03:31.440
+that user, well now we need to run this operation of inserting that user into our database.
+
+03:31.440 --> 03:34.760
+Our database stores data, right?
+
+03:34.800 --> 03:40.200
+It stores all the data that's going to be critical for this web application.
+
+03:40.200 --> 03:44.280
+Now if we want to start querying that data, we're going to use the select operation.
+
+03:44.280 --> 03:49.680
+So we can select some number of columns from some table name where there can be some conditions
+
+03:49.680 --> 03:57.240
+on what kind of rows you want to select from that, what kind of query you want to perform
+
+03:57.240 --> 04:00.320
+in order to determine what you want to select.
+
+04:00.320 --> 04:05.120
+So for example in the base case, we can select username, password from users and that's just
+
+04:05.120 --> 04:10.000
+going to return all of the usernames and passwords of the table, right?
+
+04:10.000 --> 04:16.480
+We're going to get all these rows with different columns within those rows and we can access
+
+04:16.480 --> 04:21.920
+it, we can know all of the usernames and passwords of all of the users within our database.
+
+04:21.920 --> 04:23.720
+On the other hand, we might just select the users.
+
+04:23.720 --> 04:27.520
+You can imagine a web application, you might want to know who all the users are in my web
+
+04:27.520 --> 04:28.520
+application.
+
+04:28.520 --> 04:33.560
+So we're going to query for all of the usernames within the web application, within the database
+
+04:33.560 --> 04:39.360
+and to do so we just select username from users and suddenly we have all of the usernames
+
+04:39.360 --> 04:41.620
+within our users table.
+
+04:41.620 --> 04:46.560
+You can also, if you don't want to specify particular columns you want to select, if
+
+04:46.560 --> 04:52.800
+you just want to select them all, you can use this star token and the star token just
+
+04:52.800 --> 04:57.720
+means hey give me all of the columns, give me all of the attributes of all of the users
+
+04:57.920 --> 04:58.920
+now.
+
+04:58.920 --> 05:01.760
+Because again we haven't specified a condition yet, we're just selecting everything from
+
+05:01.760 --> 05:02.760
+all of the users.
+
+05:02.760 --> 05:06.140
+So we're going to get all of the usernames and passwords.
+
+05:06.140 --> 05:10.160
+Now we might also do select star from users where username equals admin.
+
+05:10.160 --> 05:14.720
+So we might want to find information about some particular user whose, in this case,
+
+05:14.720 --> 05:15.840
+username is admin.
+
+05:15.840 --> 05:20.980
+So we query, hey give me everything about the user, the users in this case, whose username
+
+05:20.980 --> 05:21.980
+is admin.
+
+05:21.980 --> 05:27.480
+Well it turns out there's one user whose username is admin and the result contains the information
+
+05:27.520 --> 05:28.520
+about them.
+
+05:28.520 --> 05:32.920
+Alternatively, you might imagine some login operation, right?
+
+05:32.920 --> 05:37.880
+Hey give me all of the users whose username is admin and whose password is password.
+
+05:37.880 --> 05:42.200
+Well it turns out as we kind of look to the left, right, the admin user has a username
+
+05:42.200 --> 05:46.400
+of admin and a password of admin so no rows are returned.
+
+05:46.400 --> 05:50.040
+There's no users who have a username of admin and password of password.
+
+05:50.040 --> 05:51.200
+So nothing comes back.
+
+05:51.200 --> 05:53.520
+It's an empty result.
+
+05:53.520 --> 05:58.720
+Of course, if we log in correctly, if we supply a username of admin and a password of admin,
+
+05:58.720 --> 06:03.640
+then sure enough we find that user whose username is admin and whose password is admin.
+
+06:03.640 --> 06:08.520
+Hopefully it's clear how you can imagine using this language with this data to build up a
+
+06:08.520 --> 06:11.960
+web application with users and have this login operation, right?
+
+06:11.960 --> 06:15.480
+Your login operation is going to look something like this.
+
+06:15.480 --> 06:17.040
+Okay.
+
+06:17.040 --> 06:20.000
+Now if you want to be able to add data and query data, you probably also want to be able
+
+06:20.000 --> 06:21.600
+to delete data.
+
+06:21.680 --> 06:26.240
+So we have this delete from table name where conditions and this allows us to conditionally
+
+06:26.240 --> 06:28.720
+start deleting data.
+
+06:28.720 --> 06:33.280
+So for example, delete from users where username equals Canac.
+
+06:33.280 --> 06:35.040
+So we just deleted the Canac user.
+
+06:35.040 --> 06:37.080
+They're no longer going to exist in the database.
+
+06:37.080 --> 06:41.040
+The data for them if we perform a further query, it's nothing that's going to come up.
+
+06:41.040 --> 06:42.160
+We've deleted that row.
+
+06:42.160 --> 06:44.360
+We've deleted that user.
+
+06:44.360 --> 06:49.800
+Alternatively, rather than just inserting and deleting data and querying it, you might
+
+06:49.800 --> 06:51.020
+also want to update data.
+
+06:51.440 --> 06:56.740
+So we have update table name set some set of assignments where conditions.
+
+06:56.740 --> 06:59.220
+So in this case, we are changing a password.
+
+06:59.220 --> 07:02.700
+You can imagine an operation where you might want a user to be able to change their password.
+
+07:02.700 --> 07:09.460
+So we say update users, set password to password 456 where username equals Connor.
+
+07:09.460 --> 07:12.420
+And suddenly Connor's password is no longer password 123.
+
+07:12.420 --> 07:14.300
+It is password 456.
+
+07:14.300 --> 07:23.940
+We just performed a password update operation in the kind of more specific to a user management
+
+07:23.940 --> 07:25.140
+web application.
+
+07:25.140 --> 07:28.940
+You can imagine this operation being important.
+
+07:28.940 --> 07:33.980
+We also have the capability of unioning two queries together when we select data, select
+
+07:33.980 --> 07:35.260
+bits of data.
+
+07:35.260 --> 07:37.900
+Maybe you select from one table and select from another table.
+
+07:37.900 --> 07:39.380
+You might want to union that together.
+
+07:39.380 --> 07:43.780
+In this case, I'm going to show you, you know, you might, I don't know what operation this
+
+07:43.780 --> 07:48.380
+would correspond into where you'd want to do this, but you can perform this operation.
+
+07:48.380 --> 07:54.060
+You might select username from users and then union that in with select password from users.
+
+07:54.060 --> 07:58.140
+And suddenly you're just going to end up with a bunch of rows with just one column.
+
+07:58.140 --> 07:59.380
+So this isn't two columns anymore.
+
+07:59.380 --> 08:01.260
+It's just one column.
+
+08:01.260 --> 08:04.340
+And we have the usernames and the passwords in this column.
+
+08:04.340 --> 08:08.420
+You're going to notice here that it's being labeled as usernames, even though the right
+
+08:08.420 --> 08:10.340
+hand is kind of passwords.
+
+08:10.340 --> 08:15.180
+Now, traditionally, when that result comes back, it's just going to all get merged into
+
+08:15.180 --> 08:19.180
+the first selections attribute names.
+
+08:19.180 --> 08:24.460
+So that first selection is selecting for usernames, which means that first columns attribute name,
+
+08:24.460 --> 08:28.740
+that first columns name is going to be username.
+
+08:28.740 --> 08:31.380
+And that's just going to carry on.
+
+08:31.380 --> 08:35.940
+It's just going to use that as the default label for that column.
+
+08:35.940 --> 08:39.300
+Not super important necessarily, but that's kind of what's going on there, why we're calling
+
+08:39.300 --> 08:41.780
+it all usernames.
+
+08:41.780 --> 08:45.940
+Now we also have this concept of a schema table, which isn't an operation in and of
+
+08:45.940 --> 08:52.140
+itself, but it turns out you have this default table that in this case, we're looking specifically
+
+08:52.140 --> 09:00.340
+at SQLite, though there's also like MySQL and Postgres and all these other database
+
+09:00.340 --> 09:04.180
+management systems that have slightly different dialects to SQL.
+
+09:04.180 --> 09:08.100
+In this case, we're looking at SQLite, which is kind of considered the simple one, the
+
+09:08.100 --> 09:09.100
+simplest one.
+
+09:09.100 --> 09:11.420
+It's really just backed by a file on your file system.
+
+09:11.420 --> 09:16.180
+It's a very simple database solution here.
+
+09:16.180 --> 09:21.660
+And it has this concept of a schema table that is called SQLite underscore master.
+
+09:21.660 --> 09:25.940
+And SQLite underscore master has a whole bunch of rows and columns.
+
+09:25.940 --> 09:31.340
+And one of those columns is named table underscore name or tbl underscore name.
+
+09:31.340 --> 09:36.620
+And if you wanted to query all of the names of all the tables, an operation you could
+
+09:36.620 --> 09:41.940
+do is to actually query that SQLite master table, select the table names from that, and
+
+09:41.940 --> 09:43.100
+you're going to get all of the table names.
+
+09:43.100 --> 09:49.420
+This is kind of a meta operation that might be useful depending on if you need these kind
+
+09:49.420 --> 09:57.860
+of meta operations to start performing queries on the database at like a meta level that
+
+09:57.860 --> 10:06.540
+all of the popular database management systems, whether it's SQLite, MySQL, Postgres, et cetera,
+
+10:07.100 --> 10:11.660
+all have this sort of schema table.
+
+10:11.660 --> 10:12.660
+All have something similar.
+
+10:12.660 --> 10:17.100
+It's not going to look exactly the same, but have some sort of table that's managing data
+
+10:17.100 --> 10:21.340
+about the database that can be useful in some circumstances.
+
+10:21.340 --> 10:24.140
+And I figured I would mention it here.
+
+10:24.140 --> 10:28.140
+Now finally, if we kind of want to come full circle, you might want to just completely
+
+10:28.140 --> 10:29.300
+get rid of a table.
+
+10:29.300 --> 10:30.660
+You might want to drop a table.
+
+10:30.660 --> 10:35.900
+So the drop table operation just entirely drops that table from existence.
+
+10:35.940 --> 10:37.820
+It no longer exists.
+
+10:37.820 --> 10:41.180
+And by performing the drop table operation, it's gone, right?
+
+10:41.180 --> 10:46.460
+We run that operation, drop table users, and suddenly the users table is just gone from
+
+10:46.460 --> 10:47.260
+existence.

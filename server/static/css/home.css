@@ -1,0 +1,151 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-family: Montserrat;
+    background-color: #111;
+    color: white;
+}
+
+.content {
+    width: 100%;
+    height: 50%;
+}
+
+#player {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.transcript-container {
+    float: right;
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+}
+
+.transcript {
+    height: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+    font-weight: 200;
+    line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-lines: 2;
+}
+
+.question {
+    margin-top: 1em;
+    margin-left: 36px;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: default;
+}
+
+.question::before {
+    content: "?";
+    font-weight: bold;
+    border-radius: 50%;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 12px;
+    margin-left: -36px;
+}
+
+.unanswered::before {
+    background-color: yellow;
+    color: black;
+}
+
+.answered::before {
+    background-color: green;
+    color: white;
+}
+
+.seekable {
+    cursor: pointer;
+}
+
+.seekable:hover {
+    background-color: rgba(0, 0, 255, 0.4);
+}
+
+.highlight {
+    background-color: rgba(0, 0, 255, 0.8) !important;
+}
+
+.discuss {
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.discuss-messages {
+    height: calc(100% - 100px);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    border-top: 1px solid #444;
+}
+
+.message {
+    min-width: 10%;
+    max-width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+.message[data-type="ai"] {
+    background-color: rgba(127, 127, 127, 0.8);
+    border: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.message[data-type="user"] {
+    align-self: flex-end;
+    background-color: rgba(0, 0, 255, 0.8);
+    border: 1px solid rgba(0, 0, 255, 0.2);
+}
+
+.message[data-type="assessment"] {
+    background-color: rgba(255, 0, 255, 0.8);
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.success {
+    background-color: rgba(0, 192, 0, 0.8) !important;
+    border: 1px solid rgba(0, 192, 0, 0.2) !important;
+}
+
+.user-input {
+    width: calc(100% - 40px);
+    height: 50px;
+    padding: 15px;
+    margin: 20px;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    border-radius: 15px;
+    resize: none;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+}
+
+.user-input:focus {
+    outline: none;
+}

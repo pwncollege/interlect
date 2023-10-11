@@ -1,0 +1,544 @@
+WEBVTT
+
+00:00.000 --> 00:03.040
+Hello everyone and welcome back to cryptography.
+
+00:03.040 --> 00:07.560
+In this video I am going to be discussing hashing.
+
+00:07.560 --> 00:13.760
+So hashing works by taking some message, throwing it through a hash function, and producing
+
+00:13.760 --> 00:16.480
+some hash value.
+
+00:16.480 --> 00:22.840
+Now for example, if we take lorem ipsum and throw that into a hash function, so this arbitrarily
+
+00:22.840 --> 00:28.920
+large amount of data, we throw it into a hash function and out comes this specifically sized
+
+00:28.920 --> 00:35.720
+hash bit of data that, when thrown through the hash function, always produces the same
+
+00:35.720 --> 00:36.720
+hash.
+
+00:36.720 --> 00:40.320
+Hashes through this hash function always produce the same sized thing.
+
+00:40.320 --> 00:47.440
+And as we'll see here, if we just slightly change our hash data, the hash value dramatically
+
+00:47.440 --> 00:48.440
+changes.
+
+00:48.440 --> 00:49.440
+There's this avalanche effect.
+
+00:49.440 --> 00:54.920
+So if we change from lorem ipsum to morum ipsum, and we hash that, if we look back and
+
+00:55.920 --> 00:58.840
+our two hashes are dramatically different.
+
+00:58.840 --> 01:03.120
+There's this avalanche effect in which everything just dramatically changes going through this
+
+01:03.120 --> 01:04.120
+hash function.
+
+01:04.120 --> 01:08.800
+Now there's another property, which is that this hash function is one way.
+
+01:08.800 --> 01:14.800
+So it's not like encryption, where we need some capability of throwing our blob of data,
+
+01:14.800 --> 01:19.920
+encrypting it, getting some chaotic value as a result, and then being able to undo that
+
+01:19.920 --> 01:21.720
+or needing a key or something.
+
+01:21.720 --> 01:25.180
+We just straight take the data, throw it through the hash function, and out comes the
+
+01:25.180 --> 01:26.180
+hash value.
+
+01:26.180 --> 01:27.840
+And we don't need to be able to undo it.
+
+01:27.840 --> 01:28.840
+We don't need a key.
+
+01:28.840 --> 01:29.960
+We don't need anything like that.
+
+01:29.960 --> 01:34.080
+Any amount of data straight into the hash function, out comes the hash value.
+
+01:34.080 --> 01:38.840
+Now there's a few properties that are super important for a cryptographic hash function,
+
+01:38.840 --> 01:40.760
+and it is the following.
+
+01:40.760 --> 01:43.840
+So we need preimage resistance.
+
+01:43.840 --> 01:44.840
+So what does that mean?
+
+01:44.840 --> 01:50.640
+It means that given a hash value h, it should be difficult to find any input message m such
+
+01:50.640 --> 01:53.480
+that h equals hash of m.
+
+01:53.480 --> 02:00.240
+So I give you some hash value, and I don't want you to, for example, be able to undo
+
+02:00.240 --> 02:01.240
+it.
+
+02:01.240 --> 02:02.240
+We said it's one way.
+
+02:02.240 --> 02:07.260
+And when we say that it's one way, we mean that not just that, oh, we don't intend for
+
+02:07.260 --> 02:08.600
+you to be able to undo it.
+
+02:08.600 --> 02:11.920
+No, we don't want you to be able to undo it at all.
+
+02:11.920 --> 02:15.520
+There should be no way, and not even just necessarily the original message.
+
+02:15.520 --> 02:18.000
+We don't want you to be able to find any message m.
+
+02:18.000 --> 02:19.280
+There should be nothing.
+
+02:19.920 --> 02:21.840
+You can imagine that there could be this collision, right?
+
+02:21.840 --> 02:27.200
+Because we're working with this space of potentially a massive amount of data being hashed into
+
+02:27.200 --> 02:29.580
+this smaller value.
+
+02:29.580 --> 02:33.600
+So it makes sense that there's going to theoretically be tons of different values that are all going
+
+02:33.600 --> 02:35.120
+to hash to that.
+
+02:35.120 --> 02:40.440
+But we want it to be infeasible for you to find any of those messages that has the same
+
+02:40.440 --> 02:41.440
+hash value.
+
+02:41.440 --> 02:42.440
+It should not be possible.
+
+02:42.440 --> 02:46.940
+And we can achieve that by making sure that the hash value is a very large value still.
+
+02:47.100 --> 02:50.340
+Even though there are theoretically tons of things that hash to it, you're never going
+
+02:50.340 --> 02:51.340
+to find one.
+
+02:51.340 --> 02:52.340
+So this is preimage resistance.
+
+02:52.340 --> 02:57.300
+It's a critical property of a cryptographic hash function.
+
+02:57.300 --> 03:00.920
+So the next property is called second preimage resistance.
+
+03:00.920 --> 03:05.940
+What that means is that given an input message m1, it should be difficult to find a different
+
+03:05.940 --> 03:10.980
+input message m2 such that hash of m1 equals hash of m2.
+
+03:10.980 --> 03:18.420
+So given some message, I don't want you to be able to find another message that shares
+
+03:18.420 --> 03:19.580
+the hash.
+
+03:19.580 --> 03:24.340
+So not just given a hash finding the original message as is done with a preimage resistance.
+
+03:24.340 --> 03:28.620
+No, even given the message, you shouldn't be able to find another message where the
+
+03:28.620 --> 03:30.500
+hashes are colliding.
+
+03:30.500 --> 03:32.060
+There's a collision of the hashes.
+
+03:32.060 --> 03:36.760
+Okay, and then finally we have what's called collision resistance.
+
+03:36.760 --> 03:42.040
+It should be difficult to find two different input messages m1 and m2 such that hash of
+
+03:42.040 --> 03:44.000
+m1 equals hash of m2.
+
+03:44.000 --> 03:50.080
+So I'm not even concerned about my hash finding something that has the same hash or even concerned
+
+03:50.080 --> 03:54.400
+about my message finding a different message that has the same hash.
+
+03:54.400 --> 04:00.080
+You shouldn't even be able to find two arbitrary random messages that share a hash.
+
+04:00.080 --> 04:07.400
+So in other words, with all of these properties, we can kind of think of some message and its
+
+04:07.400 --> 04:12.760
+hash sharing a very strong equivalence to them.
+
+04:12.760 --> 04:17.920
+So the hash is just going to be this kind of quasi-random looking blob of data.
+
+04:17.920 --> 04:23.560
+But that random blob of data is deterministic from the original message.
+
+04:23.560 --> 04:28.560
+And due to all of these collision resistances and second preimage resistance and preimage
+
+04:28.560 --> 04:35.720
+resistance, we have this guarantee that basically my hash and my message are linked.
+
+04:35.720 --> 04:38.400
+They're like equivalent to each other in some sense.
+
+04:38.400 --> 04:43.800
+We can do a lot of cool stuff with that given that property where we can't find these other
+
+04:43.800 --> 04:48.840
+messages or these other hashes that kind of produce problems for us to kind of break this
+
+04:48.840 --> 04:52.640
+equivalency where we can find something else that is equivalent.
+
+04:52.640 --> 04:54.920
+We just have our message and our hash being equivalent.
+
+04:54.920 --> 04:57.280
+We can't break that equality.
+
+04:57.400 --> 04:58.400
+Okay.
+
+04:58.400 --> 05:05.640
+So, one of the hashing functions that does cryptographic hash is known as SHA-256.
+
+05:05.640 --> 05:07.520
+It's a very common one.
+
+05:07.520 --> 05:13.760
+There's a whole bunch of other hashing functions, but one popular one is SHA-256.
+
+05:13.760 --> 05:15.480
+It's not super important to know how it works.
+
+05:15.480 --> 05:19.320
+Similar to AES, it's not critical you understand.
+
+05:19.320 --> 05:23.240
+Other than to think of it as, you know, it's going through this mathematical blender and
+
+05:23.320 --> 05:29.560
+for our purposes, we'll say that the cryptographers have validated that those previous properties
+
+05:29.560 --> 05:30.560
+hold.
+
+05:30.560 --> 05:31.560
+Okay.
+
+05:31.560 --> 05:33.760
+So, what are we going to use hashing for?
+
+05:33.760 --> 05:37.920
+There's a number of applications that we might use hashing for.
+
+05:37.920 --> 05:41.520
+One of them is called, or not called, but is password hashing.
+
+05:41.520 --> 05:51.920
+So, we can imagine that we have some application where users must log into that application
+
+05:52.040 --> 05:53.840
+and they provide their password.
+
+05:53.840 --> 06:00.640
+Well, it's not very cool, we'll say, to store all of those passwords just as is in a database
+
+06:00.640 --> 06:08.320
+because if someone somehow compromises your system, they now have all of the passwords.
+
+06:08.320 --> 06:12.240
+And we don't want to be accidentally leaking passwords to the world.
+
+06:12.240 --> 06:15.960
+Obviously, we don't want our database to get compromised, but we want to be prepared for
+
+06:15.960 --> 06:16.960
+the worst case scenario.
+
+06:17.000 --> 06:21.320
+So, a very popular technique is to hash the password.
+
+06:21.320 --> 06:26.840
+So, we take their password in, we hash it, and then we store the hash of the password
+
+06:26.840 --> 06:27.840
+in the database.
+
+06:27.840 --> 06:31.800
+And we've said that there's this equivalency and there's this one-way equivalency, which
+
+06:31.800 --> 06:36.440
+means that if someone gets the hash of my password, they are not able to recover the
+
+06:36.440 --> 06:37.960
+original password.
+
+06:37.960 --> 06:43.120
+And furthermore, we can still do authentication because when I, on the server side, get your
+
+06:43.120 --> 06:47.280
+password coming into me, I can just hash it and say, are the hashes the same or not?
+
+06:47.280 --> 06:51.800
+So, it's very common for applications to do what's called password hashing.
+
+06:51.800 --> 06:57.320
+Now, there's a solution, or not necessarily a solution, there's a bit of a problem, which
+
+06:57.320 --> 07:04.520
+is that it actually turns out that you kind of can undo a password hash somewhat efficiently
+
+07:04.520 --> 07:07.560
+in some circumstances if the password is weak.
+
+07:07.880 --> 07:14.720
+So, we might not be able to just go straight from a hash and uncover the original piece
+
+07:14.720 --> 07:20.520
+of text that produced that hash, but we can just enumerate all of the most common passwords,
+
+07:20.520 --> 07:27.520
+or just kind of sequentially go through a bunch of passwords, find the hashes for those
+
+07:27.520 --> 07:33.520
+values, and then build up this table where now we can undo password hashes that way.
+
+07:33.520 --> 07:38.840
+So, this is kind of like a way of bypassing the fact that you're hashing passwords.
+
+07:38.840 --> 07:44.280
+Now, there's a solution to that as well, and that's called password hashing with salt.
+
+07:44.280 --> 07:50.480
+So, rather than just hash their password, we hash their password along with some sequence
+
+07:50.480 --> 07:51.480
+of random bytes.
+
+07:51.480 --> 07:55.360
+In this case, we're just doing salt with a 4, but really it should just be a bunch of
+
+07:55.360 --> 07:56.700
+random bytes.
+
+07:56.700 --> 07:57.920
+And we hash that.
+
+07:58.280 --> 08:04.840
+What we store is their password as well as the salt, which means that you can't just
+
+08:04.840 --> 08:11.600
+have these efficiently already precomputed tables with, let's say, some hash corresponding
+
+08:11.600 --> 08:15.240
+to some password where we can now do a lookup on it.
+
+08:15.240 --> 08:19.240
+Now you would need to build these tables for every single particular salt.
+
+08:19.240 --> 08:24.960
+And kind of this makes it a lot more difficult to do password cracking, and it turns out
+
+08:24.960 --> 08:29.120
+that a lot of secure web applications, in fact, do this.
+
+08:29.120 --> 08:32.320
+They salt the password before they hash it.
+
+08:32.320 --> 08:34.680
+So that's one application of hashing.
+
+08:34.680 --> 08:36.720
+There is another application of hashing.
+
+08:36.720 --> 08:43.840
+So if you've heard of proof of work, which is an important concept in, let's say, cryptocurrencies
+
+08:43.840 --> 08:45.800
+that work off of proof of work.
+
+08:45.800 --> 08:51.320
+And if you've heard of Bitcoin miners, let's say, well, it turns out what those miners
+
+08:51.320 --> 08:54.440
+are doing is that they're doing a proof of work.
+
+08:54.440 --> 09:02.160
+So what a proof of work is, is some challenge with some response hashed together and starting
+
+09:02.160 --> 09:04.120
+with some specific prefix.
+
+09:04.120 --> 09:06.000
+So that might sound a little complicated.
+
+09:06.000 --> 09:07.000
+What does that mean?
+
+09:07.000 --> 09:09.160
+Well, what that means is we get some challenge.
+
+09:09.160 --> 09:14.960
+Let's just say in this case, our challenge is just the string challenge, but more likely
+
+09:14.960 --> 09:18.920
+it would be a sequence of random bytes, but it could just be the word challenge is our
+
+09:18.920 --> 09:20.360
+challenge.
+
+09:20.360 --> 09:27.440
+And we need to find a hash where using that challenge as our prefix and appending some
+
+09:27.440 --> 09:31.080
+response, some random bit of data to the end.
+
+09:31.080 --> 09:35.400
+When hashed, it starts with a sequence of some specific prefix.
+
+09:35.400 --> 09:40.080
+So for example, we need to find four zeros in a row at the start of our hash.
+
+09:40.080 --> 09:44.000
+And what we need to do is we need to hash the prefix, which is the challenge together
+
+09:44.000 --> 09:47.480
+with the response, which in this case is like, let's say, zero followed by one, followed
+
+09:47.480 --> 09:48.480
+by two, followed by three.
+
+09:48.600 --> 09:54.760
+We just need to enumerate, perform all of these hashes until we find a hash that starts
+
+09:54.760 --> 09:56.320
+with our given prefix.
+
+09:56.320 --> 10:04.080
+So in this case, if we take SHA-256 and we hash challenge with zero, it starts with A5C5.
+
+10:04.080 --> 10:08.920
+We take challenge one and hash it, it starts with A5C5 as well.
+
+10:08.920 --> 10:12.080
+No, that's not true.
+
+10:12.080 --> 10:13.920
+But we'll say that it is.
+
+10:13.920 --> 10:15.320
+It starts with some other hash.
+
+10:15.320 --> 10:16.480
+Apparently the hash here is wrong.
+
+10:16.480 --> 10:19.160
+It'll be updated in the future slides.
+
+10:19.160 --> 10:23.880
+But then we might also have, as we keep walking, eventually we do find one that starts with
+
+10:23.880 --> 10:24.880
+four zeros.
+
+10:24.880 --> 10:27.440
+So we find challenge 26387.
+
+10:27.440 --> 10:30.460
+We hash that, and that in fact does start with four zeros.
+
+10:30.460 --> 10:32.440
+So we did this proof of work.
+
+10:32.440 --> 10:33.440
+We got this challenge.
+
+10:33.440 --> 10:34.680
+We found our response.
+
+10:34.680 --> 10:37.400
+Our response is 26387.
+
+10:37.400 --> 10:40.280
+We send this back to the person giving us a challenge response.
+
+10:40.280 --> 10:44.620
+And we say, hey, the solution to your problem is 26387.
+
+10:44.620 --> 10:50.140
+If you take the hash of challenge followed by 26387, it starts with four zeros.
+
+10:50.140 --> 10:51.140
+It starts with that prefix.
+
+10:51.140 --> 10:56.220
+And we can make the difficulty of this proof of work arbitrarily complicated by increasing
+
+10:56.220 --> 11:01.660
+the length of the prefix, increasing the number of zeros you must find in a row.
+
+11:01.660 --> 11:05.100
+And because this hash function is one way, you're just going to have to sit there and
+
+11:05.100 --> 11:12.020
+brute force these hashes in order to find these values that start with the correct prefix.
+
+11:12.020 --> 11:17.540
+And in doing so, we've kind of guaranteed some amount of work must have been performed.
+
+11:17.540 --> 11:24.700
+We've kind of arbitrarily introduced this computational delay into something by requiring
+
+11:24.700 --> 11:28.780
+this challenge response and requiring you to sit there, perform a bunch of math until
+
+11:28.780 --> 11:32.020
+you finally found a response to the challenge.

@@ -1,0 +1,777 @@
+- title: Introduction to SQL
+  notes:
+  - Introduction to SQL, a language used for manipulating, accessing, and querying
+    data.
+  - The importance of understanding SQL for web applications.
+  - Basics of Structured Query Language (SQL).
+  questions:
+  - What is SQL and why is it important?
+  - How is SQL used in web applications?
+  transcript:
+  - id: 0
+    start: 0
+    stop: 3600
+    text: Hello everyone and welcome back to Web Security.
+  - id: 1
+    start: 3600
+    stop: 8480
+    text: In this video I'm going to be talking to you all about the Structured Query
+      Language, commonly
+  - id: 2
+    start: 8480
+    stop: 11220
+    text: referred to as SQL.
+  - id: 3
+    start: 11220
+    stop: 19120
+    text: So SQL, Structured Query Language, is a very commonly used language for
+      manipulating and
+  - id: 4
+    start: 19120
+    stop: 21860
+    text: accessing and querying data.
+  - id: 5
+    start: 21860
+    stop: 26280
+    text: So SQL is a language in and of itself, of course, you know, Structured Query
+      Language.
+  - id: 6
+    start: 26600
+    stop: 32560
+    text: It is a language and if you want to understand how web applications work,
+      particularly those
+  - id: 7
+    start: 32560
+    stop: 37080
+    text: that use Structured Query Language, which is again very common for manipulating
+      and
+  - id: 8
+    start: 37080
+    stop: 43740
+    text: accessing data, we need to understand what it is that the Structured Query
+      Language is.
+  - id: 9
+    start: 43740
+    stop: 50180
+    text: So I'm going to be talking to you all about the basics of Structured Query
+      Language, SQL.
+- title: Creating Tables in SQL
+  notes:
+  - Explanation of SQL's database structure: databases, tables, rows, and columns.
+  - The 'create table' operation to create tables in SQL.
+  - Creating a users table with username and password columns.
+  questions:
+  - How does SQL structure its databases?
+  - What is the 'create table' operation and how is it used?
+  transcript:
+  - id: 10
+    start: 50180
+    stop: 56220
+    text: So the first operation that is very important and good to know about is
+      the create table
+  - id: 11
+    start: 56220
+    stop: 57220
+    text: operation.
+  - id: 12
+    start: 57220
+    stop: 65760
+    text: So SQL operates off of a paradigm of you have these databases and within
+      those databases
+  - id: 13
+    start: 65760
+    stop: 70800
+    text: you have tables and then within those tables you have rows and you have
+      columns.
+  - id: 14
+    start: 70800
+    stop: 75980
+    text: So you can kind of think of something like some sort of spreadsheet application,
+      right?
+  - id: 15
+    start: 75980
+    stop: 79760
+    text: You can have a bunch of pages in your spreadsheet application and you have
+      rows and columns
+  - id: 16
+    start: 79840
+    stop: 82080
+    text: with holding data.
+  - id: 17
+    start: 82080
+    stop: 85060
+    text: So the first thing we want to be able to do is we want to be able to create
+      a table that's
+  - id: 18
+    start: 85060
+    stop: 86800
+    text: going to store data.
+  - id: 19
+    start: 86800
+    stop: 92000
+    text: So in order to do that we're going to use the create table operation and
+      we're going
+  - id: 20
+    start: 92000
+    stop: 100000
+    text: to specify some table name as well as some column names and potentially
+      column attributes.
+  - id: 21
+    start: 100000
+    stop: 104920
+    text: So for example, if we want to create some users table, we run the create
+      table users
+  - id: 22
+    start: 105040
+    stop: 110240
+    text: and then we're specifying username and password as two of the columns within
+      that.
+  - id: 23
+    start: 110240
+    stop: 115720
+    text: And in doing so we've suddenly birthed a new table within our database called
+      users and
+  - id: 24
+    start: 115720
+    stop: 119920
+    text: it's ready to have a bunch of users with a username and password.
+  - id: 25
+    start: 119920
+    stop: 124660
+    text: So right now we've just got an empty table with users, username and password
+      are the
+  - id: 26
+    start: 124660
+    stop: 131240
+    text: attributes, the columns of a particular user which is some row within that
+      users table.
+- title: Inserting Data into SQL Tables
+  notes:
+  - The 'insert into' function to add data to SQL tables.
+  - Inserting users into the users table with unique usernames and passwords.
+  questions:
+  - How do you add data to an SQL table?
+  - What happens when you insert data into a table?
+  transcript:
+  - id: 27
+    start: 131240
+    stop: 137360
+    text: So now if you want to add some data to that table, we want to use the insert
+      into function
+  - id: 28
+    start: 137360
+    stop: 142960
+    text: which is we can insert into some table name values and then specify the
+      values you want
+  - id: 29
+    start: 142960
+    stop: 146400
+    text: to insert in, in order of those columns.
+  - id: 30
+    start: 146400
+    stop: 153520
+    text: So for example, if we want to insert the admin admin user, we can run insert
+      into users values
+  - id: 31
+    start: 153520
+    stop: 154960
+    text: admin admin.
+  - id: 32
+    start: 154960
+    stop: 160680
+    text: Note the double quotes here or you could use single quotes but we are inserting
+      the string
+  - id: 33
+    start: 160800
+    stop: 167880
+    text: values into our table and suddenly we have a concept of a user, some data
+      backing a user
+  - id: 34
+    start: 167880
+    stop: 173880
+    text: concept where we have one of them which is an admin whose username is admin
+      and whose
+  - id: 35
+    start: 173880
+    stop: 176880
+    text: password is admin as well.
+  - id: 36
+    start: 176880
+    stop: 180760
+    text: And if we want to continue on to insert more data into this table, right
+      every, every time
+  - id: 37
+    start: 180760
+    stop: 184920
+    text: we perform one of these operations, we're inserting another row into the
+      table.
+  - id: 38
+    start: 184920
+    stop: 191000
+    text: Now we have Connor password 123 and finally we add Canac with Hunter2 as
+      a password.
+  - id: 39
+    start: 191000
+    stop: 195960
+    text: So we've got this table set up with some data with three users in it, each
+      with a unique
+  - id: 40
+    start: 195960
+    stop: 200680
+    text: username and password and you know you could imagine now we're ready to
+      start having a
+  - id: 41
+    start: 200680
+    stop: 201760
+    text: web application, right?
+  - id: 42
+    start: 201760
+    stop: 206320
+    text: You can imagine some web application had a create user page and when you
+      went to create
+  - id: 43
+    start: 206320
+    stop: 211440
+    text: that user, well now we need to run this operation of inserting that user
+      into our database.
+  - id: 44
+    start: 211440
+    stop: 214760
+    text: Our database stores data, right?
+  - id: 45
+    start: 214800
+    stop: 220200
+    text: It stores all the data that's going to be critical for this web application.
+- title: Querying Data in SQL
+  notes:
+  - The 'select' operation to query data in SQL.
+  - Selecting specific columns from a table, all columns, or based on certain conditions.
+  - Examples of different select queries and their results.
+  questions:
+  - How do you query data in SQL?
+  - What are some examples of select queries and their results?
+  transcript:
+  - id: 46
+    start: 220200
+    stop: 224280
+    text: Now if we want to start querying that data, we're going to use the select
+      operation.
+  - id: 47
+    start: 224280
+    stop: 229680
+    text: So we can select some number of columns from some table name where there
+      can be some conditions
+  - id: 48
+    start: 229680
+    stop: 237240
+    text: on what kind of rows you want to select from that, what kind of query you
+      want to perform
+  - id: 49
+    start: 237240
+    stop: 240320
+    text: in order to determine what you want to select.
+  - id: 50
+    start: 240320
+    stop: 245120
+    text: So for example in the base case, we can select username, password from users
+      and that's just
+  - id: 51
+    start: 245120
+    stop: 250000
+    text: going to return all of the usernames and passwords of the table, right?
+  - id: 52
+    start: 250000
+    stop: 256480
+    text: We're going to get all these rows with different columns within those rows
+      and we can access
+  - id: 53
+    start: 256480
+    stop: 261920
+    text: it, we can know all of the usernames and passwords of all of the users within
+      our database.
+  - id: 54
+    start: 261920
+    stop: 263720
+    text: On the other hand, we might just select the users.
+  - id: 55
+    start: 263720
+    stop: 267520
+    text: You can imagine a web application, you might want to know who all the users
+      are in my web
+  - id: 56
+    start: 267520
+    stop: 268520
+    text: application.
+  - id: 57
+    start: 268520
+    stop: 273560
+    text: So we're going to query for all of the usernames within the web application,
+      within the database
+  - id: 58
+    start: 273560
+    stop: 279360
+    text: and to do so we just select username from users and suddenly we have all
+      of the usernames
+  - id: 59
+    start: 279360
+    stop: 281620
+    text: within our users table.
+  - id: 60
+    start: 281620
+    stop: 286560
+    text: You can also, if you don't want to specify particular columns you want to
+      select, if
+  - id: 61
+    start: 286560
+    stop: 292800
+    text: you just want to select them all, you can use this star token and the star
+      token just
+  - id: 62
+    start: 292800
+    stop: 297720
+    text: means hey give me all of the columns, give me all of the attributes of all
+      of the users
+  - id: 63
+    start: 297920
+    stop: 298920
+    text: now.
+  - id: 64
+    start: 298920
+    stop: 301760
+    text: Because again we haven't specified a condition yet, we're just selecting
+      everything from
+  - id: 65
+    start: 301760
+    stop: 302760
+    text: all of the users.
+  - id: 66
+    start: 302760
+    stop: 306140
+    text: So we're going to get all of the usernames and passwords.
+  - id: 67
+    start: 306140
+    stop: 310160
+    text: Now we might also do select star from users where username equals admin.
+  - id: 68
+    start: 310160
+    stop: 314720
+    text: So we might want to find information about some particular user whose, in
+      this case,
+  - id: 69
+    start: 314720
+    stop: 315840
+    text: username is admin.
+  - id: 70
+    start: 315840
+    stop: 320980
+    text: So we query, hey give me everything about the user, the users in this case,
+      whose username
+  - id: 71
+    start: 320980
+    stop: 321980
+    text: is admin.
+  - id: 72
+    start: 321980
+    stop: 327480
+    text: Well it turns out there's one user whose username is admin and the result
+      contains the information
+  - id: 73
+    start: 327520
+    stop: 328520
+    text: about them.
+  - id: 74
+    start: 328520
+    stop: 332920
+    text: Alternatively, you might imagine some login operation, right?
+  - id: 75
+    start: 332920
+    stop: 337880
+    text: Hey give me all of the users whose username is admin and whose password
+      is password.
+  - id: 76
+    start: 337880
+    stop: 342200
+    text: Well it turns out as we kind of look to the left, right, the admin user
+      has a username
+  - id: 77
+    start: 342200
+    stop: 346400
+    text: of admin and a password of admin so no rows are returned.
+  - id: 78
+    start: 346400
+    stop: 350040
+    text: There's no users who have a username of admin and password of password.
+  - id: 79
+    start: 350040
+    stop: 351200
+    text: So nothing comes back.
+  - id: 80
+    start: 351200
+    stop: 353520
+    text: It's an empty result.
+  - id: 81
+    start: 353520
+    stop: 358720
+    text: Of course, if we log in correctly, if we supply a username of admin and
+      a password of admin,
+  - id: 82
+    start: 358720
+    stop: 363640
+    text: then sure enough we find that user whose username is admin and whose password
+      is admin.
+  - id: 83
+    start: 363640
+    stop: 368520
+    text: Hopefully it's clear how you can imagine using this language with this data
+      to build up a
+  - id: 84
+    start: 368520
+    stop: 371960
+    text: web application with users and have this login operation, right?
+  - id: 85
+    start: 371960
+    stop: 375480
+    text: Your login operation is going to look something like this.
+  - id: 86
+    start: 375480
+    stop: 377040
+    text: Okay.
+  - id: 87
+    start: 377040
+    stop: 380000
+    text: Now if you want to be able to add data and query data, you probably also
+      want to be able
+- title: Deleting and Updating Data in SQL
+  notes:
+  - The 'delete from' operation to remove data from SQL tables.
+  - The 'update' operation to change existing data in SQL tables.
+  - Examples of deleting a user and updating a user's password.
+  questions:
+  - How do you delete data from an SQL table?
+  - How do you update existing data in an SQL table?
+  transcript:
+  - id: 88
+    start: 380000
+    stop: 381600
+    text: to delete data.
+  - id: 89
+    start: 381680
+    stop: 386240
+    text: So we have this delete from table name where conditions and this allows
+      us to conditionally
+  - id: 90
+    start: 386240
+    stop: 388720
+    text: start deleting data.
+  - id: 91
+    start: 388720
+    stop: 393280
+    text: So for example, delete from users where username equals Canac.
+  - id: 92
+    start: 393280
+    stop: 395040
+    text: So we just deleted the Canac user.
+  - id: 93
+    start: 395040
+    stop: 397080
+    text: They're no longer going to exist in the database.
+  - id: 94
+    start: 397080
+    stop: 401040
+    text: The data for them if we perform a further query, it's nothing that's going
+      to come up.
+  - id: 95
+    start: 401040
+    stop: 402160
+    text: We've deleted that row.
+  - id: 96
+    start: 402160
+    stop: 404360
+    text: We've deleted that user.
+  - id: 97
+    start: 404360
+    stop: 409800
+    text: Alternatively, rather than just inserting and deleting data and querying
+      it, you might
+  - id: 98
+    start: 409800
+    stop: 411020
+    text: also want to update data.
+  - id: 99
+    start: 411440
+    stop: 416740
+    text: So we have update table name set some set of assignments where conditions.
+  - id: 100
+    start: 416740
+    stop: 419220
+    text: So in this case, we are changing a password.
+  - id: 101
+    start: 419220
+    stop: 422700
+    text: You can imagine an operation where you might want a user to be able to change
+      their password.
+  - id: 102
+    start: 422700
+    stop: 429460
+    text: So we say update users, set password to password 456 where username equals
+      Connor.
+  - id: 103
+    start: 429460
+    stop: 432420
+    text: And suddenly Connor's password is no longer password 123.
+  - id: 104
+    start: 432420
+    stop: 434300
+    text: It is password 456.
+  - id: 105
+    start: 434300
+    stop: 443940
+    text: We just performed a password update operation in the kind of more specific
+      to a user management
+  - id: 106
+    start: 443940
+    stop: 445140
+    text: web application.
+  - id: 107
+    start: 445140
+    stop: 448940
+    text: You can imagine this operation being important.
+- title: Advanced SQL Operations
+  notes:
+  - The 'union' operation to combine the results of two select queries.
+  - The concept of a schema table in SQLite.
+  - The 'drop table' operation to remove an entire table from the database.
+  questions:
+  - What is the 'union' operation and how is it used?
+  - What is a schema table in SQLite?
+  - How do you remove an entire table from the database?
+  transcript:
+  - id: 108
+    start: 448940
+    stop: 453980
+    text: We also have the capability of unioning two queries together when we select
+      data, select
+  - id: 109
+    start: 453980
+    stop: 455260
+    text: bits of data.
+  - id: 110
+    start: 455260
+    stop: 457900
+    text: Maybe you select from one table and select from another table.
+  - id: 111
+    start: 457900
+    stop: 459380
+    text: You might want to union that together.
+  - id: 112
+    start: 459380
+    stop: 463780
+    text: In this case, I'm going to show you, you know, you might, I don't know what
+      operation this
+  - id: 113
+    start: 463780
+    stop: 468380
+    text: would correspond into where you'd want to do this, but you can perform this
+      operation.
+  - id: 114
+    start: 468380
+    stop: 474060
+    text: You might select username from users and then union that in with select
+      password from users.
+  - id: 115
+    start: 474060
+    stop: 478140
+    text: And suddenly you're just going to end up with a bunch of rows with just
+      one column.
+  - id: 116
+    start: 478140
+    stop: 479380
+    text: So this isn't two columns anymore.
+  - id: 117
+    start: 479380
+    stop: 481260
+    text: It's just one column.
+  - id: 118
+    start: 481260
+    stop: 484340
+    text: And we have the usernames and the passwords in this column.
+  - id: 119
+    start: 484340
+    stop: 488420
+    text: You're going to notice here that it's being labeled as usernames, even though
+      the right
+  - id: 120
+    start: 488420
+    stop: 490340
+    text: hand is kind of passwords.
+  - id: 121
+    start: 490340
+    stop: 495180
+    text: Now, traditionally, when that result comes back, it's just going to all
+      get merged into
+  - id: 122
+    start: 495180
+    stop: 499180
+    text: the first selections attribute names.
+  - id: 123
+    start: 499180
+    stop: 504460
+    text: So that first selection is selecting for usernames, which means that first
+      columns attribute name,
+  - id: 124
+    start: 504460
+    stop: 508740
+    text: that first columns name is going to be username.
+  - id: 125
+    start: 508740
+    stop: 511380
+    text: And that's just going to carry on.
+  - id: 126
+    start: 511380
+    stop: 515940
+    text: It's just going to use that as the default label for that column.
+  - id: 127
+    start: 515940
+    stop: 519300
+    text: Not super important necessarily, but that's kind of what's going on there,
+      why we're calling
+  - id: 128
+    start: 519300
+    stop: 521780
+    text: it all usernames.
+  - id: 129
+    start: 521780
+    stop: 525940
+    text: Now we also have this concept of a schema table, which isn't an operation
+      in and of
+  - id: 130
+    start: 525940
+    stop: 532140
+    text: itself, but it turns out you have this default table that in this case,
+      we're looking specifically
+  - id: 131
+    start: 532140
+    stop: 540340
+    text: at SQLite, though there's also like MySQL and Postgres and all these other
+      database
+  - id: 132
+    start: 540340
+    stop: 544180
+    text: management systems that have slightly different dialects to SQL.
+  - id: 133
+    start: 544180
+    stop: 548100
+    text: In this case, we're looking at SQLite, which is kind of considered the simple
+      one, the
+  - id: 134
+    start: 548100
+    stop: 549100
+    text: simplest one.
+  - id: 135
+    start: 549100
+    stop: 551420
+    text: It's really just backed by a file on your file system.
+  - id: 136
+    start: 551420
+    stop: 556180
+    text: It's a very simple database solution here.
+  - id: 137
+    start: 556180
+    stop: 561660
+    text: And it has this concept of a schema table that is called SQLite underscore
+      master.
+  - id: 138
+    start: 561660
+    stop: 565940
+    text: And SQLite underscore master has a whole bunch of rows and columns.
+  - id: 139
+    start: 565940
+    stop: 571340
+    text: And one of those columns is named table underscore name or tbl underscore
+      name.
+  - id: 140
+    start: 571340
+    stop: 576620
+    text: And if you wanted to query all of the names of all the tables, an operation
+      you could
+  - id: 141
+    start: 576620
+    stop: 581940
+    text: do is to actually query that SQLite master table, select the table names
+      from that, and
+  - id: 142
+    start: 581940
+    stop: 583100
+    text: you're going to get all of the table names.
+  - id: 143
+    start: 583100
+    stop: 589420
+    text: This is kind of a meta operation that might be useful depending on if you
+      need these kind
+  - id: 144
+    start: 589420
+    stop: 597860
+    text: of meta operations to start performing queries on the database at like a
+      meta level that
+  - id: 145
+    start: 597860
+    stop: 606540
+    text: all of the popular database management systems, whether it's SQLite, MySQL,
+      Postgres, et cetera,
+  - id: 146
+    start: 607100
+    stop: 611660
+    text: all have this sort of schema table.
+  - id: 147
+    start: 611660
+    stop: 612660
+    text: All have something similar.
+  - id: 148
+    start: 612660
+    stop: 617100
+    text: It's not going to look exactly the same, but have some sort of table that's
+      managing data
+  - id: 149
+    start: 617100
+    stop: 621340
+    text: about the database that can be useful in some circumstances.
+  - id: 150
+    start: 621340
+    stop: 624140
+    text: And I figured I would mention it here.
+  - id: 151
+    start: 624140
+    stop: 628140
+    text: Now finally, if we kind of want to come full circle, you might want to just
+      completely
+  - id: 152
+    start: 628140
+    stop: 629300
+    text: get rid of a table.
+  - id: 153
+    start: 629300
+    stop: 630660
+    text: You might want to drop a table.
+  - id: 154
+    start: 630660
+    stop: 635900
+    text: So the drop table operation just entirely drops that table from existence.
+  - id: 155
+    start: 635940
+    stop: 637820
+    text: It no longer exists.
+  - id: 156
+    start: 637820
+    stop: 641180
+    text: And by performing the drop table operation, it's gone, right?
+  - id: 157
+    start: 641180
+    stop: 646460
+    text: We run that operation, drop table users, and suddenly the users table is
+      just gone from
+  - id: 158
+    start: 646460
+    stop: 647260
+    text: 'existence.
+
+      '

@@ -1,0 +1,859 @@
+- title: Introduction to Hashing
+  notes:
+  - The video starts with an introduction to hashing, explaining how it works by taking
+    a message and producing a hash value through a hash function.
+  - The speaker explains the concept of the avalanche effect, where a slight change
+    in the hash data results in a dramatic change in the hash value.
+  - The speaker also explains the one-way nature of hashing, where the data is thrown
+    through the hash function to produce a hash value, without the need for a key
+    or the ability to undo it.
+  questions:
+  - What is the avalanche effect in hashing?
+  - Why is hashing considered a one-way function?
+  transcript:
+  - id: 0
+    start: 0
+    stop: 3040
+    text: Hello everyone and welcome back to cryptography.
+  - id: 1
+    start: 3040
+    stop: 7560
+    text: In this video I am going to be discussing hashing.
+  - id: 2
+    start: 7560
+    stop: 13760
+    text: So hashing works by taking some message, throwing it through a hash function,
+      and producing
+  - id: 3
+    start: 13760
+    stop: 16480
+    text: some hash value.
+  - id: 4
+    start: 16480
+    stop: 22840
+    text: Now for example, if we take lorem ipsum and throw that into a hash function,
+      so this arbitrarily
+  - id: 5
+    start: 22840
+    stop: 28920
+    text: large amount of data, we throw it into a hash function and out comes this
+      specifically sized
+  - id: 6
+    start: 28920
+    stop: 35720
+    text: hash bit of data that, when thrown through the hash function, always produces
+      the same
+  - id: 7
+    start: 35720
+    stop: 36720
+    text: hash.
+  - id: 8
+    start: 36720
+    stop: 40320
+    text: Hashes through this hash function always produce the same sized thing.
+  - id: 9
+    start: 40320
+    stop: 47440
+    text: And as we'll see here, if we just slightly change our hash data, the hash
+      value dramatically
+  - id: 10
+    start: 47440
+    stop: 48440
+    text: changes.
+  - id: 11
+    start: 48440
+    stop: 49440
+    text: There's this avalanche effect.
+  - id: 12
+    start: 49440
+    stop: 54920
+    text: So if we change from lorem ipsum to morum ipsum, and we hash that, if we
+      look back and
+  - id: 13
+    start: 55920
+    stop: 58840
+    text: our two hashes are dramatically different.
+  - id: 14
+    start: 58840
+    stop: 63120
+    text: There's this avalanche effect in which everything just dramatically changes
+      going through this
+  - id: 15
+    start: 63120
+    stop: 64120
+    text: hash function.
+  - id: 16
+    start: 64120
+    stop: 68800
+    text: Now there's another property, which is that this hash function is one way.
+  - id: 17
+    start: 68800
+    stop: 74800
+    text: So it's not like encryption, where we need some capability of throwing our
+      blob of data,
+  - id: 18
+    start: 74800
+    stop: 79920
+    text: encrypting it, getting some chaotic value as a result, and then being able
+      to undo that
+  - id: 19
+    start: 79920
+    stop: 81720
+    text: or needing a key or something.
+  - id: 20
+    start: 81720
+    stop: 85180
+    text: We just straight take the data, throw it through the hash function, and
+      out comes the
+  - id: 21
+    start: 85180
+    stop: 86180
+    text: hash value.
+  - id: 22
+    start: 86180
+    stop: 87840
+    text: And we don't need to be able to undo it.
+  - id: 23
+    start: 87840
+    stop: 88840
+    text: We don't need a key.
+  - id: 24
+    start: 88840
+    stop: 89960
+    text: We don't need anything like that.
+  - id: 25
+    start: 89960
+    stop: 94080
+    text: Any amount of data straight into the hash function, out comes the hash value.
+- title: Properties of Cryptographic Hash Functions
+  notes:
+  - The speaker discusses the properties of a cryptographic hash function, including
+    preimage resistance, second preimage resistance, and collision resistance.
+  - Preimage resistance means it should be difficult to find any input message that
+    equals the hash of a given hash value.
+  - Second preimage resistance means it should be difficult to find a different input
+    message that equals the hash of a given input message.
+  - Collision resistance means it should be difficult to find two different input
+    messages that produce the same hash.
+  questions:
+  - What is preimage resistance and why is it important in a cryptographic hash function?
+  - How does second preimage resistance differ from preimage resistance?
+  - What is collision resistance and why is it crucial in a cryptographic hash function?
+  transcript:
+  - id: 26
+    start: 94080
+    stop: 98840
+    text: Now there's a few properties that are super important for a cryptographic
+      hash function,
+  - id: 27
+    start: 98840
+    stop: 100760
+    text: and it is the following.
+  - id: 28
+    start: 100760
+    stop: 103840
+    text: So we need preimage resistance.
+  - id: 29
+    start: 103840
+    stop: 104840
+    text: So what does that mean?
+  - id: 30
+    start: 104840
+    stop: 110640
+    text: It means that given a hash value h, it should be difficult to find any input
+      message m such
+  - id: 31
+    start: 110640
+    stop: 113480
+    text: that h equals hash of m.
+  - id: 32
+    start: 113480
+    stop: 120240
+    text: So I give you some hash value, and I don't want you to, for example, be
+      able to undo
+  - id: 33
+    start: 120240
+    stop: 121240
+    text: it.
+  - id: 34
+    start: 121240
+    stop: 122240
+    text: We said it's one way.
+  - id: 35
+    start: 122240
+    stop: 127260
+    text: And when we say that it's one way, we mean that not just that, oh, we don't
+      intend for
+  - id: 36
+    start: 127260
+    stop: 128600
+    text: you to be able to undo it.
+  - id: 37
+    start: 128600
+    stop: 131920
+    text: No, we don't want you to be able to undo it at all.
+  - id: 38
+    start: 131920
+    stop: 135520
+    text: There should be no way, and not even just necessarily the original message.
+  - id: 39
+    start: 135520
+    stop: 138000
+    text: We don't want you to be able to find any message m.
+  - id: 40
+    start: 138000
+    stop: 139280
+    text: There should be nothing.
+  - id: 41
+    start: 139920
+    stop: 141840
+    text: You can imagine that there could be this collision, right?
+  - id: 42
+    start: 141840
+    stop: 147200
+    text: Because we're working with this space of potentially a massive amount of
+      data being hashed into
+  - id: 43
+    start: 147200
+    stop: 149580
+    text: this smaller value.
+  - id: 44
+    start: 149580
+    stop: 153600
+    text: So it makes sense that there's going to theoretically be tons of different
+      values that are all going
+  - id: 45
+    start: 153600
+    stop: 155120
+    text: to hash to that.
+  - id: 46
+    start: 155120
+    stop: 160440
+    text: But we want it to be infeasible for you to find any of those messages that
+      has the same
+  - id: 47
+    start: 160440
+    stop: 161440
+    text: hash value.
+  - id: 48
+    start: 161440
+    stop: 162440
+    text: It should not be possible.
+  - id: 49
+    start: 162440
+    stop: 166940
+    text: And we can achieve that by making sure that the hash value is a very large
+      value still.
+  - id: 50
+    start: 167100
+    stop: 170340
+    text: Even though there are theoretically tons of things that hash to it, you're
+      never going
+  - id: 51
+    start: 170340
+    stop: 171340
+    text: to find one.
+  - id: 52
+    start: 171340
+    stop: 172340
+    text: So this is preimage resistance.
+  - id: 53
+    start: 172340
+    stop: 177300
+    text: It's a critical property of a cryptographic hash function.
+  - id: 54
+    start: 177300
+    stop: 180920
+    text: So the next property is called second preimage resistance.
+  - id: 55
+    start: 180920
+    stop: 185940
+    text: What that means is that given an input message m1, it should be difficult
+      to find a different
+  - id: 56
+    start: 185940
+    stop: 190980
+    text: input message m2 such that hash of m1 equals hash of m2.
+  - id: 57
+    start: 190980
+    stop: 198420
+    text: So given some message, I don't want you to be able to find another message
+      that shares
+  - id: 58
+    start: 198420
+    stop: 199580
+    text: the hash.
+  - id: 59
+    start: 199580
+    stop: 204340
+    text: So not just given a hash finding the original message as is done with a
+      preimage resistance.
+  - id: 60
+    start: 204340
+    stop: 208620
+    text: No, even given the message, you shouldn't be able to find another message
+      where the
+  - id: 61
+    start: 208620
+    stop: 210500
+    text: hashes are colliding.
+  - id: 62
+    start: 210500
+    stop: 212060
+    text: There's a collision of the hashes.
+  - id: 63
+    start: 212060
+    stop: 216760
+    text: Okay, and then finally we have what's called collision resistance.
+  - id: 64
+    start: 216760
+    stop: 222040
+    text: It should be difficult to find two different input messages m1 and m2 such
+      that hash of
+  - id: 65
+    start: 222040
+    stop: 224000
+    text: m1 equals hash of m2.
+  - id: 66
+    start: 224000
+    stop: 230080
+    text: So I'm not even concerned about my hash finding something that has the same
+      hash or even concerned
+  - id: 67
+    start: 230080
+    stop: 234400
+    text: about my message finding a different message that has the same hash.
+  - id: 68
+    start: 234400
+    stop: 240080
+    text: You shouldn't even be able to find two arbitrary random messages that share
+      a hash.
+  - id: 69
+    start: 240080
+    stop: 247400
+    text: So in other words, with all of these properties, we can kind of think of
+      some message and its
+  - id: 70
+    start: 247400
+    stop: 252760
+    text: hash sharing a very strong equivalence to them.
+  - id: 71
+    start: 252760
+    stop: 257920
+    text: So the hash is just going to be this kind of quasi-random looking blob of
+      data.
+  - id: 72
+    start: 257920
+    stop: 263560
+    text: But that random blob of data is deterministic from the original message.
+  - id: 73
+    start: 263560
+    stop: 268560
+    text: And due to all of these collision resistances and second preimage resistance
+      and preimage
+  - id: 74
+    start: 268560
+    stop: 275720
+    text: resistance, we have this guarantee that basically my hash and my message
+      are linked.
+  - id: 75
+    start: 275720
+    stop: 278400
+    text: They're like equivalent to each other in some sense.
+  - id: 76
+    start: 278400
+    stop: 283800
+    text: We can do a lot of cool stuff with that given that property where we can't
+      find these other
+  - id: 77
+    start: 283800
+    stop: 288840
+    text: messages or these other hashes that kind of produce problems for us to kind
+      of break this
+  - id: 78
+    start: 288840
+    stop: 292640
+    text: equivalency where we can find something else that is equivalent.
+  - id: 79
+    start: 292640
+    stop: 294920
+    text: We just have our message and our hash being equivalent.
+  - id: 80
+    start: 294920
+    stop: 297280
+    text: We can't break that equality.
+  - id: 81
+    start: 297400
+    stop: 298400
+    text: Okay.
+- title: SHA-256 and Applications of Hashing
+  notes:
+  - The speaker introduces SHA-256, a popular cryptographic hash function, and explains
+    that its workings are not critical to understand for the purpose of the video.
+  - The speaker discusses the application of hashing in password hashing, where passwords
+    are hashed and stored in the database for security purposes.
+  - The speaker also discusses the concept of password hashing with salt, where a
+    sequence of random bytes is added to the password before hashing to prevent precomputed
+    tables from undoing the hash.
+  questions:
+  - What is SHA-256 and why is it commonly used in cryptographic hashing?
+  - How does password hashing enhance security in applications?
+  - What is the purpose of adding salt to a password before hashing it?
+  transcript:
+  - id: 82
+    start: 298400
+    stop: 305640
+    text: So, one of the hashing functions that does cryptographic hash is known as
+      SHA-256.
+  - id: 83
+    start: 305640
+    stop: 307520
+    text: It's a very common one.
+  - id: 84
+    start: 307520
+    stop: 313760
+    text: There's a whole bunch of other hashing functions, but one popular one is
+      SHA-256.
+  - id: 85
+    start: 313760
+    stop: 315480
+    text: It's not super important to know how it works.
+  - id: 86
+    start: 315480
+    stop: 319320
+    text: Similar to AES, it's not critical you understand.
+  - id: 87
+    start: 319320
+    stop: 323240
+    text: Other than to think of it as, you know, it's going through this mathematical
+      blender and
+  - id: 88
+    start: 323320
+    stop: 329560
+    text: for our purposes, we'll say that the cryptographers have validated that
+      those previous properties
+  - id: 89
+    start: 329560
+    stop: 330560
+    text: hold.
+  - id: 90
+    start: 330560
+    stop: 331560
+    text: Okay.
+  - id: 91
+    start: 331560
+    stop: 333760
+    text: So, what are we going to use hashing for?
+  - id: 92
+    start: 333760
+    stop: 337920
+    text: There's a number of applications that we might use hashing for.
+  - id: 93
+    start: 337920
+    stop: 341520
+    text: One of them is called, or not called, but is password hashing.
+  - id: 94
+    start: 341520
+    stop: 351920
+    text: So, we can imagine that we have some application where users must log into
+      that application
+  - id: 95
+    start: 352040
+    stop: 353840
+    text: and they provide their password.
+  - id: 96
+    start: 353840
+    stop: 360640
+    text: Well, it's not very cool, we'll say, to store all of those passwords just
+      as is in a database
+  - id: 97
+    start: 360640
+    stop: 368320
+    text: because if someone somehow compromises your system, they now have all of
+      the passwords.
+  - id: 98
+    start: 368320
+    stop: 372240
+    text: And we don't want to be accidentally leaking passwords to the world.
+  - id: 99
+    start: 372240
+    stop: 375960
+    text: Obviously, we don't want our database to get compromised, but we want to
+      be prepared for
+  - id: 100
+    start: 375960
+    stop: 376960
+    text: the worst case scenario.
+  - id: 101
+    start: 377000
+    stop: 381320
+    text: So, a very popular technique is to hash the password.
+  - id: 102
+    start: 381320
+    stop: 386840
+    text: So, we take their password in, we hash it, and then we store the hash of
+      the password
+  - id: 103
+    start: 386840
+    stop: 387840
+    text: in the database.
+  - id: 104
+    start: 387840
+    stop: 391800
+    text: And we've said that there's this equivalency and there's this one-way equivalency,
+      which
+  - id: 105
+    start: 391800
+    stop: 396440
+    text: means that if someone gets the hash of my password, they are not able to
+      recover the
+  - id: 106
+    start: 396440
+    stop: 397960
+    text: original password.
+  - id: 107
+    start: 397960
+    stop: 403120
+    text: And furthermore, we can still do authentication because when I, on the server
+      side, get your
+  - id: 108
+    start: 403120
+    stop: 407280
+    text: password coming into me, I can just hash it and say, are the hashes the
+      same or not?
+  - id: 109
+    start: 407280
+    stop: 411800
+    text: So, it's very common for applications to do what's called password hashing.
+  - id: 110
+    start: 411800
+    stop: 417320
+    text: Now, there's a solution, or not necessarily a solution, there's a bit of
+      a problem, which
+  - id: 111
+    start: 417320
+    stop: 424520
+    text: is that it actually turns out that you kind of can undo a password hash
+      somewhat efficiently
+  - id: 112
+    start: 424520
+    stop: 427560
+    text: in some circumstances if the password is weak.
+  - id: 113
+    start: 427880
+    stop: 434720
+    text: So, we might not be able to just go straight from a hash and uncover the
+      original piece
+  - id: 114
+    start: 434720
+    stop: 440520
+    text: of text that produced that hash, but we can just enumerate all of the most
+      common passwords,
+  - id: 115
+    start: 440520
+    stop: 447520
+    text: or just kind of sequentially go through a bunch of passwords, find the hashes
+      for those
+  - id: 116
+    start: 447520
+    stop: 453520
+    text: values, and then build up this table where now we can undo password hashes
+      that way.
+  - id: 117
+    start: 453520
+    stop: 458840
+    text: So, this is kind of like a way of bypassing the fact that you're hashing
+      passwords.
+  - id: 118
+    start: 458840
+    stop: 464280
+    text: Now, there's a solution to that as well, and that's called password hashing
+      with salt.
+  - id: 119
+    start: 464280
+    stop: 470480
+    text: So, rather than just hash their password, we hash their password along with
+      some sequence
+  - id: 120
+    start: 470480
+    stop: 471480
+    text: of random bytes.
+  - id: 121
+    start: 471480
+    stop: 475360
+    text: In this case, we're just doing salt with a 4, but really it should just
+      be a bunch of
+  - id: 122
+    start: 475360
+    stop: 476700
+    text: random bytes.
+  - id: 123
+    start: 476700
+    stop: 477920
+    text: And we hash that.
+  - id: 124
+    start: 478280
+    stop: 484840
+    text: What we store is their password as well as the salt, which means that you
+      can't just
+  - id: 125
+    start: 484840
+    stop: 491600
+    text: have these efficiently already precomputed tables with, let's say, some
+      hash corresponding
+  - id: 126
+    start: 491600
+    stop: 495240
+    text: to some password where we can now do a lookup on it.
+  - id: 127
+    start: 495240
+    stop: 499240
+    text: Now you would need to build these tables for every single particular salt.
+  - id: 128
+    start: 499240
+    stop: 504960
+    text: And kind of this makes it a lot more difficult to do password cracking,
+      and it turns out
+  - id: 129
+    start: 504960
+    stop: 509120
+    text: that a lot of secure web applications, in fact, do this.
+  - id: 130
+    start: 509120
+    stop: 512320
+    text: They salt the password before they hash it.
+  - id: 131
+    start: 512320
+    stop: 514680
+    text: So that's one application of hashing.
+- title: Proof of Work and Cryptocurrencies
+  notes:
+  - The speaker introduces the concept of proof of work, an important concept in cryptocurrencies
+    like Bitcoin.
+  - In proof of work, a challenge is given and a response is hashed together with
+    the challenge until a hash with a specific prefix is found.
+  - The difficulty of the proof of work can be adjusted by increasing the length of
+    the prefix.
+  questions:
+  - What is proof of work and how does it relate to cryptocurrencies?
+  - How is the difficulty of proof of work adjusted?
+  - How does proof of work contribute to the security of cryptocurrencies?
+  transcript:
+  - id: 132
+    start: 514680
+    stop: 516720
+    text: There is another application of hashing.
+  - id: 133
+    start: 516720
+    stop: 523840
+    text: So if you've heard of proof of work, which is an important concept in, let's
+      say, cryptocurrencies
+  - id: 134
+    start: 523840
+    stop: 525800
+    text: that work off of proof of work.
+  - id: 135
+    start: 525800
+    stop: 531320
+    text: And if you've heard of Bitcoin miners, let's say, well, it turns out what
+      those miners
+  - id: 136
+    start: 531320
+    stop: 534440
+    text: are doing is that they're doing a proof of work.
+  - id: 137
+    start: 534440
+    stop: 542160
+    text: So what a proof of work is, is some challenge with some response hashed
+      together and starting
+  - id: 138
+    start: 542160
+    stop: 544120
+    text: with some specific prefix.
+  - id: 139
+    start: 544120
+    stop: 546000
+    text: So that might sound a little complicated.
+  - id: 140
+    start: 546000
+    stop: 547000
+    text: What does that mean?
+  - id: 141
+    start: 547000
+    stop: 549160
+    text: Well, what that means is we get some challenge.
+  - id: 142
+    start: 549160
+    stop: 554960
+    text: Let's just say in this case, our challenge is just the string challenge,
+      but more likely
+  - id: 143
+    start: 554960
+    stop: 558920
+    text: it would be a sequence of random bytes, but it could just be the word challenge
+      is our
+  - id: 144
+    start: 558920
+    stop: 560360
+    text: challenge.
+  - id: 145
+    start: 560360
+    stop: 567440
+    text: And we need to find a hash where using that challenge as our prefix and
+      appending some
+  - id: 146
+    start: 567440
+    stop: 571080
+    text: response, some random bit of data to the end.
+  - id: 147
+    start: 571080
+    stop: 575400
+    text: When hashed, it starts with a sequence of some specific prefix.
+  - id: 148
+    start: 575400
+    stop: 580080
+    text: So for example, we need to find four zeros in a row at the start of our
+      hash.
+  - id: 149
+    start: 580080
+    stop: 584000
+    text: And what we need to do is we need to hash the prefix, which is the challenge
+      together
+  - id: 150
+    start: 584000
+    stop: 587480
+    text: with the response, which in this case is like, let's say, zero followed
+      by one, followed
+  - id: 151
+    start: 587480
+    stop: 588480
+    text: by two, followed by three.
+  - id: 152
+    start: 588600
+    stop: 594760
+    text: We just need to enumerate, perform all of these hashes until we find a hash
+      that starts
+  - id: 153
+    start: 594760
+    stop: 596320
+    text: with our given prefix.
+  - id: 154
+    start: 596320
+    stop: 604080
+    text: So in this case, if we take SHA-256 and we hash challenge with zero, it
+      starts with A5C5.
+  - id: 155
+    start: 604080
+    stop: 608920
+    text: We take challenge one and hash it, it starts with A5C5 as well.
+  - id: 156
+    start: 608920
+    stop: 612080
+    text: No, that's not true.
+  - id: 157
+    start: 612080
+    stop: 613920
+    text: But we'll say that it is.
+  - id: 158
+    start: 613920
+    stop: 615320
+    text: It starts with some other hash.
+  - id: 159
+    start: 615320
+    stop: 616480
+    text: Apparently the hash here is wrong.
+  - id: 160
+    start: 616480
+    stop: 619160
+    text: It'll be updated in the future slides.
+  - id: 161
+    start: 619160
+    stop: 623880
+    text: But then we might also have, as we keep walking, eventually we do find one
+      that starts with
+  - id: 162
+    start: 623880
+    stop: 624880
+    text: four zeros.
+  - id: 163
+    start: 624880
+    stop: 627440
+    text: So we find challenge 26387.
+  - id: 164
+    start: 627440
+    stop: 630460
+    text: We hash that, and that in fact does start with four zeros.
+  - id: 165
+    start: 630460
+    stop: 632440
+    text: So we did this proof of work.
+  - id: 166
+    start: 632440
+    stop: 633440
+    text: We got this challenge.
+  - id: 167
+    start: 633440
+    stop: 634680
+    text: We found our response.
+  - id: 168
+    start: 634680
+    stop: 637400
+    text: Our response is 26387.
+  - id: 169
+    start: 637400
+    stop: 640280
+    text: We send this back to the person giving us a challenge response.
+  - id: 170
+    start: 640280
+    stop: 644620
+    text: And we say, hey, the solution to your problem is 26387.
+  - id: 171
+    start: 644620
+    stop: 650140
+    text: If you take the hash of challenge followed by 26387, it starts with four
+      zeros.
+  - id: 172
+    start: 650140
+    stop: 651140
+    text: It starts with that prefix.
+  - id: 173
+    start: 651140
+    stop: 656220
+    text: And we can make the difficulty of this proof of work arbitrarily complicated
+      by increasing
+  - id: 174
+    start: 656220
+    stop: 661660
+    text: the length of the prefix, increasing the number of zeros you must find in
+      a row.
+  - id: 175
+    start: 661660
+    stop: 665100
+    text: And because this hash function is one way, you're just going to have to
+      sit there and
+  - id: 176
+    start: 665100
+    stop: 672020
+    text: brute force these hashes in order to find these values that start with the
+      correct prefix.
+  - id: 177
+    start: 672020
+    stop: 677540
+    text: And in doing so, we've kind of guaranteed some amount of work must have
+      been performed.
+  - id: 178
+    start: 677540
+    stop: 684700
+    text: We've kind of arbitrarily introduced this computational delay into something
+      by requiring
+  - id: 179
+    start: 684700
+    stop: 688780
+    text: this challenge response and requiring you to sit there, perform a bunch
+      of math until
+  - id: 180
+    start: 688780
+    stop: 692020
+    text: 'you finally found a response to the challenge.
+
+      '

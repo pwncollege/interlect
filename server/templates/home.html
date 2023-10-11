@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/home.css">
+        <script>
+            const VIDEO_ID = "{{ video_id }}";
+            const SESSION_ID = "{{ session_id }}"
+        </script>
+        <script src="static/js/home.js" async></script>
+    </head>
+    <body>
+        <div class="content">
+            <div id="player"></div>
+            <div class="transcript-container">
+                <div class="transcript"></div>
+            </div>
+        </div>
+        <div class="discuss">
+            <div class="discuss-messages">
+                <div class="message" data-type="ai">
+                    Hello, if you have any questions, or would like me to expand on a topic, please just ask!
+                    Make sure to pay attention though, as I might ask you a question!
+                </div>
+            </div>
+            <textarea class="user-input" placeholder="Ask a question."></textarea>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+{"when": 62, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:04:40.196717+00:00"}
+{"when": 7060, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:04:47.248469+00:00"}
+{"when": 7093, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:04:52.472751+00:00"}
+{"when": 8586, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:04:53.968476+00:00"}
+{"when": 8613, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T05:04:55.161897+00:00"}
+{"when": 13891, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T05:05:00.446943+00:00"}
+{"when": 13891, "chapter": 0, "event": "message", "type": "user", "text": "Hi!", "datetime": "2023-10-11T05:07:58.176830+00:00"}

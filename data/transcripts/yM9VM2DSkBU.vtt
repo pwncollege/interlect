@@ -1,0 +1,844 @@
+WEBVTT
+
+00:00.000 --> 00:03.700
+In this lecture, we're going to be talking about URLs
+
+00:03.700 --> 00:06.660
+and the encoding of requests.
+
+00:06.660 --> 00:10.600
+So a URL, as you've probably seen before
+
+00:10.600 --> 00:12.460
+in typing in your browser,
+
+00:12.460 --> 00:15.120
+is composed of a number of things.
+
+00:15.120 --> 00:18.020
+So it is composed of a scheme, a host, a port,
+
+00:18.020 --> 00:20.400
+a path, a query, and a fragment.
+
+00:20.400 --> 00:23.540
+So let's take as an example, this request right here,
+
+00:23.540 --> 00:26.180
+or rather this URL right here.
+
+00:26.180 --> 00:29.260
+And a URL is a uniform resource locator
+
+00:29.260 --> 00:30.900
+for those wondering,
+
+00:30.900 --> 00:33.340
+but most people call them just URLs.
+
+00:33.340 --> 00:37.540
+So in this case, we have some example.com
+
+00:37.540 --> 00:41.220
+requesting a kind of a cat.gif with some width, some height,
+
+00:41.220 --> 00:43.940
+and then we can pretend for this example
+
+00:43.940 --> 00:47.700
+that let's say we're kind of also requesting
+
+00:47.700 --> 00:52.700
+that the gif be played two seconds into its duration.
+
+00:54.080 --> 00:56.740
+So this first thing here is HTTP.
+
+00:56.780 --> 00:59.540
+And within the context of a URL,
+
+00:59.540 --> 01:01.740
+you might have a number of different protocols.
+
+01:01.740 --> 01:05.700
+So all sorts of protocols use a URL scheme
+
+01:05.700 --> 01:06.940
+that looks very similar.
+
+01:08.040 --> 01:10.540
+So we need to basically specify
+
+01:10.540 --> 01:14.060
+what is the protocol being used to access this resource?
+
+01:14.060 --> 01:15.580
+Well, in the case of HTTP,
+
+01:15.580 --> 01:18.340
+the Hypertext Transport Protocol,
+
+01:18.340 --> 01:22.940
+we're using HTTP as our protocol for accessing the resource.
+
+01:22.940 --> 01:24.240
+The next thing is the host.
+
+01:24.240 --> 01:29.240
+So the host defines where this resource is being held.
+
+01:30.000 --> 01:31.560
+So in this case, we're saying,
+
+01:31.560 --> 01:34.960
+hey, there's some server out there on the internet
+
+01:34.960 --> 01:39.960
+that we call example.com, and it holds this resource.
+
+01:40.560 --> 01:42.600
+Now, the next thing is the port.
+
+01:42.600 --> 01:44.760
+And the port is going to be,
+
+01:44.760 --> 01:47.460
+if we think back to the internet lecture,
+
+01:48.400 --> 01:52.320
+the transport layer basically defines that,
+
+01:52.360 --> 01:55.760
+hey, a server might have several services,
+
+01:55.760 --> 01:57.760
+several programs running on it,
+
+01:57.760 --> 02:00.240
+and each of them might be facilitating
+
+02:00.240 --> 02:01.880
+different network applications.
+
+02:01.880 --> 02:05.320
+Not all of them might be speaking HTTP.
+
+02:05.320 --> 02:10.180
+They might be speaking different application protocols
+
+02:10.180 --> 02:11.340
+on top of there.
+
+02:12.720 --> 02:15.000
+But in this case, we're looking at port 80,
+
+02:15.000 --> 02:16.880
+which is the standard HTTP protocol.
+
+02:16.880 --> 02:20.820
+Alternatively, we might have multiple web servers
+
+02:20.820 --> 02:22.500
+running on the same host.
+
+02:22.500 --> 02:24.660
+So for instance, we might have a web server
+
+02:24.660 --> 02:27.580
+running on port 80, another website,
+
+02:27.580 --> 02:31.300
+or web server rather, on example.com running on port 8080.
+
+02:31.300 --> 02:33.740
+And we might need to specify different ports
+
+02:33.740 --> 02:36.900
+for accessing those different web servers.
+
+02:36.900 --> 02:41.060
+By default though, a normal use case within the internet,
+
+02:41.060 --> 02:44.140
+or within the World Wide Web rather, is port 80.
+
+02:44.140 --> 02:46.660
+And that can be optionally left out,
+
+02:46.660 --> 02:49.140
+but this is the full URL scheme.
+
+02:50.020 --> 02:51.620
+So the next thing is the path.
+
+02:51.620 --> 02:54.500
+So the path identifies the specific resource
+
+02:54.500 --> 02:58.780
+that we're trying to either get or interact with,
+
+02:58.780 --> 03:01.780
+again, thinking back to get request, post request,
+
+03:01.780 --> 03:05.840
+the resource that we're trying to interact with.
+
+03:05.840 --> 03:07.840
+So in this case, cat.gif.
+
+03:07.840 --> 03:11.420
+The next part of the URL scheme is the query.
+
+03:11.420 --> 03:14.700
+So we might basically be saying,
+
+03:14.700 --> 03:18.620
+hey, this resource has other information
+
+03:20.660 --> 03:23.300
+that it might need in order to know
+
+03:23.300 --> 03:25.460
+how to correctly get that resource,
+
+03:25.460 --> 03:27.700
+or if we're interacting with that resource,
+
+03:27.700 --> 03:29.940
+how we want to interact with that resource.
+
+03:29.940 --> 03:32.300
+So for example, we can imagine that this web server
+
+03:32.300 --> 03:35.860
+is able to facilitate this cat.gif resource,
+
+03:35.860 --> 03:37.940
+and it might be able to return GIFs
+
+03:37.940 --> 03:39.800
+of different widths and heights.
+
+03:39.800 --> 03:41.940
+So in this case, we specify within the query,
+
+03:41.940 --> 03:45.220
+hey, I want a width of 256 and a height of 256.
+
+03:45.220 --> 03:48.540
+And again, it's really up to the web application
+
+03:48.540 --> 03:51.820
+to be how it's going to facilitate these requests,
+
+03:51.820 --> 03:54.700
+but this is what the standardized URL scheme
+
+03:54.700 --> 03:56.740
+supports for communication,
+
+03:56.740 --> 03:59.560
+and this is how things are standardized.
+
+04:00.500 --> 04:03.100
+So again, this is information that the resource can use
+
+04:03.100 --> 04:06.700
+for kind of figuring out a little more information
+
+04:06.700 --> 04:08.460
+about that resource.
+
+04:08.460 --> 04:11.280
+And then the last thing is the fragment.
+
+04:11.280 --> 04:13.480
+So the fragment actually isn't sent out
+
+04:13.480 --> 04:15.600
+in our networked request.
+
+04:15.600 --> 04:18.240
+It is client-specific information.
+
+04:18.240 --> 04:22.600
+So the programs that we're interacting with,
+
+04:22.600 --> 04:24.560
+so for instance, let's say we're using our web browser
+
+04:24.560 --> 04:26.540
+to facilitate this request,
+
+04:26.540 --> 04:29.520
+the web browser might want its own information.
+
+04:29.520 --> 04:31.480
+So for instance, let's say we pass this link
+
+04:31.480 --> 04:33.160
+along to someone else,
+
+04:33.160 --> 04:36.680
+and we're specifically interested in this cat.gif
+
+04:36.680 --> 04:39.100
+at the two-second mark within the GIF,
+
+04:39.100 --> 04:41.820
+and we don't want them to see the first two seconds,
+
+04:41.820 --> 04:44.600
+well, we can actually pass along this full URL
+
+04:44.600 --> 04:46.780
+with client-side information.
+
+04:46.780 --> 04:48.940
+In this case, we're imagining that our browser
+
+04:48.940 --> 04:52.980
+is going to be able to start playing the cat.gif video
+
+04:52.980 --> 04:53.960
+at the two-second mark.
+
+04:53.960 --> 04:58.580
+And this fragment component allows for a URL
+
+04:58.580 --> 05:01.840
+to contain client-specific information about the resource
+
+05:01.840 --> 05:04.340
+that isn't actually passed along to the server.
+
+05:05.180 --> 05:10.180
+Okay, so let's recall back to the request URI
+
+05:11.820 --> 05:16.820
+from the previous lecture video on RFC 1945.
+
+05:17.140 --> 05:19.580
+So we have this request line that's composed of our method,
+
+05:19.580 --> 05:23.660
+our request URI, and this HTTP version.
+
+05:23.660 --> 05:27.560
+So the request URI is a critical component of the URL
+
+05:27.560 --> 05:30.620
+and kind of gets translated in this request.
+
+05:30.620 --> 05:32.580
+But there's something to think about here
+
+05:32.580 --> 05:35.220
+when we're accessing a request.
+
+05:35.220 --> 05:38.020
+The thing to think about is that what happens
+
+05:38.020 --> 05:43.020
+if I want to get the hello space world resource?
+
+05:44.140 --> 05:46.740
+We have a little bit of an issue here,
+
+05:46.740 --> 05:50.460
+which is that if I was to go and make this request,
+
+05:50.460 --> 05:52.660
+the server is actually going to inform me that,
+
+05:52.660 --> 05:54.940
+hey, you made a bad request.
+
+05:54.940 --> 05:59.940
+And what that means, as we saw in the RFC 1945 lecture video
+
+06:00.940 --> 06:05.660
+is that you are not actually speaking valid HTTP.
+
+06:05.660 --> 06:09.460
+The server understands that you're asking for something,
+
+06:09.460 --> 06:11.060
+but it doesn't know what you're speaking
+
+06:11.060 --> 06:13.920
+because it can't properly parse this HTTP request
+
+06:13.920 --> 06:14.760
+that you've made.
+
+06:14.760 --> 06:16.420
+You've made a bad request.
+
+06:16.420 --> 06:20.580
+And the reason for that is these spaces in the request line.
+
+06:20.580 --> 06:25.580
+So we have method, space, request URI, space, HTTP version,
+
+06:26.320 --> 06:28.460
+and then carriage return line feed.
+
+06:28.460 --> 06:31.140
+These spaces are delimiting the start
+
+06:31.140 --> 06:33.260
+and the end of the request URI.
+
+06:33.260 --> 06:36.340
+So when we went and we put a space in there,
+
+06:36.340 --> 06:38.060
+the server, when it goes to parse this,
+
+06:38.060 --> 06:42.580
+is gonna see, hey, I'm requesting the slash hello resource.
+
+06:42.580 --> 06:45.760
+And then my HTTP version is world, right?
+
+06:45.760 --> 06:47.860
+Which isn't an HTTP version.
+
+06:47.860 --> 06:50.180
+And the parsing has gotten out of sync
+
+06:50.180 --> 06:52.220
+and it's a massive issue.
+
+06:52.220 --> 06:56.460
+The solution to this problem, however, is encoding.
+
+06:56.460 --> 07:00.260
+So we need some sort of way of basically saying,
+
+07:00.260 --> 07:03.700
+I want hello space world, that resource,
+
+07:03.700 --> 07:05.340
+because for whatever reason,
+
+07:05.340 --> 07:08.740
+we might imagine that we need our web application
+
+07:08.740 --> 07:12.060
+to facilitate web resources that have a space in it.
+
+07:12.060 --> 07:14.500
+There's no reason to leave them out,
+
+07:14.500 --> 07:15.780
+that that shouldn't be possible.
+
+07:15.780 --> 07:17.420
+Though, I mean, I guess in theory,
+
+07:17.420 --> 07:20.200
+you could imagine a protocol where you just aren't allowed
+
+07:20.200 --> 07:22.260
+to have resources with spaces in them.
+
+07:22.260 --> 07:26.700
+But fortunately, HTTP allows for resources
+
+07:26.700 --> 07:27.620
+with spaces in them.
+
+07:27.620 --> 07:29.580
+URLs can have spaces in them.
+
+07:29.580 --> 07:31.860
+They just must be encoded.
+
+07:31.860 --> 07:34.220
+So there are a number of unsafe characters,
+
+07:34.220 --> 07:35.980
+which includes, for instance, that space.
+
+07:35.980 --> 07:37.220
+And it's unsafe, as we saw,
+
+07:37.220 --> 07:39.860
+because when we go to parse that request,
+
+07:39.860 --> 07:42.380
+it's gonna throw off the parser.
+
+07:42.380 --> 07:44.740
+I mean, in theory, you could write a parser
+
+07:44.740 --> 07:45.580
+that could deal with it,
+
+07:45.580 --> 07:47.820
+but we want things to be very simple, quick,
+
+07:47.820 --> 07:50.220
+and we have defined in the standard
+
+07:50.220 --> 07:54.580
+that the space character is unsafe and must be encoded.
+
+07:54.580 --> 07:57.540
+There's also some reserved characters that must be encoded.
+
+07:57.540 --> 07:59.760
+And then there's also unprintable characters
+
+07:59.760 --> 08:01.200
+that must be encoded.
+
+08:01.200 --> 08:03.380
+So for example, if our resource
+
+08:03.380 --> 08:05.960
+had a newline character in it,
+
+08:05.960 --> 08:09.440
+how would we represent that in the URL?
+
+08:10.380 --> 08:14.340
+I mean, I guess you could imagine having this URL written out
+
+08:14.340 --> 08:17.580
+and then a new line in it, and it goes to a second line.
+
+08:17.580 --> 08:22.020
+It'd be a little strange looking, a little confusing.
+
+08:22.020 --> 08:24.820
+It could work, but according to the standard,
+
+08:24.820 --> 08:28.260
+those are unprintable characters and they must be encoded.
+
+08:29.900 --> 08:33.140
+Optionally, though, all characters may be encoded.
+
+08:33.140 --> 08:36.180
+So if you want to encode, let's say, an A,
+
+08:37.460 --> 08:38.740
+you're free to do so.
+
+08:38.740 --> 08:41.400
+It's just not a requirement that it be encoded.
+
+08:41.400 --> 08:44.260
+So what do these encodings look like then?
+
+08:44.260 --> 08:46.860
+Well, the way that these characters are encoded
+
+08:46.860 --> 08:48.860
+is that we have a percent sign
+
+08:48.860 --> 08:52.020
+followed by a hex character followed by a hex character.
+
+08:52.020 --> 08:55.260
+So we're going off of the ASCII chart here on the right
+
+08:55.260 --> 08:58.580
+for determining what those hex character values are.
+
+08:58.580 --> 09:02.780
+And if we look here at space in,
+
+09:02.780 --> 09:04.660
+let's see here, where is the space character?
+
+09:04.660 --> 09:08.420
+In the top row, second column, we have our,
+
+09:08.420 --> 09:12.060
+or third column rather, we have the space character
+
+09:12.060 --> 09:15.700
+and its hex value in ASCII is two zero.
+
+09:15.700 --> 09:18.280
+So the way that we URL encode that character
+
+09:18.280 --> 09:20.900
+is that we say it is percent two zero.
+
+09:20.900 --> 09:23.620
+Alternatively, pound is percent two three,
+
+09:23.620 --> 09:27.500
+slash is percent two F, question mark is percent three F.
+
+09:27.500 --> 09:30.740
+And again, we can optionally choose to encode
+
+09:30.740 --> 09:33.660
+any of the characters using this URL encoding scheme.
+
+09:33.660 --> 09:36.300
+We can do percent four one for capital A.
+
+09:36.300 --> 09:37.780
+So then now let's see what that looks like
+
+09:37.780 --> 09:40.100
+when we make a correctly formed request
+
+09:40.100 --> 09:42.600
+for the hello space world resource.
+
+09:43.780 --> 09:45.260
+Instead of putting a space there,
+
+09:45.820 --> 09:46.980
+we put that percent two zero.
+
+09:46.980 --> 09:50.580
+We've correctly URL encoded our request
+
+09:50.580 --> 09:53.540
+and now the web server is happy with us
+
+09:53.540 --> 09:58.180
+and is happy to return to us the hello space world resource.
+
+09:58.180 --> 10:02.540
+Okay, so there are a number of encoding methods.
+
+10:02.540 --> 10:06.620
+So we were looking there at the URL encoding,
+
+10:06.620 --> 10:11.500
+but there's a number of content types for servicing requests
+
+10:11.500 --> 10:14.860
+especially in the context of let's say posting data.
+
+10:15.420 --> 10:18.220
+So we saw earlier in a previous lecture video
+
+10:18.220 --> 10:23.220
+that we might want to have some form on our website
+
+10:23.380 --> 10:26.900
+in which we're specifying, hey, my name is Connor
+
+10:26.900 --> 10:29.980
+and I want to post the fact that my name is Connor
+
+10:29.980 --> 10:31.220
+to the greet resource.
+
+10:31.220 --> 10:34.860
+This is kind of what this request here is specifying.
+
+10:34.860 --> 10:38.180
+So in this case, we declared to the web server,
+
+10:38.180 --> 10:40.980
+hey, we're using a content type of application
+
+10:40.980 --> 10:44.540
+X www form URL encoded.
+
+10:45.220 --> 10:46.820
+And what that means and what that structure looks like
+
+10:46.820 --> 10:49.140
+is that we can have a number of fields
+
+10:50.540 --> 10:55.140
+where each field is represented with its key.
+
+10:55.140 --> 10:57.420
+So in this case, name, and then its value,
+
+10:57.420 --> 10:58.380
+in this case, Connor,
+
+10:58.380 --> 11:01.140
+and they are separated with an equal sign.
+
+11:01.140 --> 11:04.540
+We could also have more values in there
+
+11:04.540 --> 11:07.860
+and those other values would be separated with an ampersand.
+
+11:09.100 --> 11:10.620
+Okay, alternatively though,
+
+11:10.660 --> 11:15.660
+we don't have to just use a form URL encoded content type.
+
+11:15.900 --> 11:19.900
+We can also use a JSON encoded content type
+
+11:19.900 --> 11:20.820
+for speaking to it.
+
+11:20.820 --> 11:22.540
+And there are reasons why you might choose
+
+11:22.540 --> 11:24.460
+one over the other.
+
+11:24.460 --> 11:29.020
+In this case, JSON is JavaScript object notation.
+
+11:29.020 --> 11:30.660
+So this allows us to send
+
+11:30.660 --> 11:34.180
+kind of slightly more structured data at a server.
+
+11:34.180 --> 11:36.180
+And in this case, it looks something like this
+
+11:36.180 --> 11:37.580
+where we have some curly braces,
+
+11:37.580 --> 11:40.220
+we specify our key within quotes,
+
+11:40.820 --> 11:43.660
+and then we say that we have this string object Connor
+
+11:43.660 --> 11:47.300
+after a colon, and this is the structure of JSON.
+
+11:48.540 --> 11:51.300
+The use cases for both vary.
+
+11:51.300 --> 11:53.940
+It's up to the web application
+
+11:53.940 --> 11:57.860
+for what kinds of content types it's gonna be looking for.
+
+11:57.860 --> 12:00.060
+So some might have, for example,
+
+12:00.060 --> 12:03.620
+that form URL encoded as a result of the fact
+
+12:03.620 --> 12:06.740
+that you're interacting with a form on a webpage
+
+12:06.740 --> 12:09.540
+and you go and let's say, click some submit button.
+
+12:09.540 --> 12:10.900
+So you can imagine a form
+
+12:10.900 --> 12:13.100
+where you're asked to type in your name
+
+12:13.100 --> 12:14.460
+and then you hit submit,
+
+12:14.460 --> 12:18.900
+and it posts as a form URL encoded content type
+
+12:18.900 --> 12:20.540
+to the server and the server is looking
+
+12:20.540 --> 12:22.940
+for that content type and it's gonna go through
+
+12:22.940 --> 12:24.260
+and understand that.
+
+12:24.260 --> 12:26.100
+On the other hand, you might have
+
+12:28.420 --> 12:30.900
+more hierarchical data that the server
+
+12:30.900 --> 12:32.380
+wants to be able to handle.
+
+12:32.380 --> 12:35.220
+And we might be building up these complex objects
+
+12:35.220 --> 12:36.580
+that we want to send to the server
+
+12:36.580 --> 12:39.260
+and you might choose to use application JSON.
+
+12:39.820 --> 12:43.500
+One common paradigm within the world wide web,
+
+12:43.500 --> 12:48.500
+within the web is JSON RESTful APIs.
+
+12:48.500 --> 12:50.260
+You might have heard of that.
+
+12:50.260 --> 12:55.140
+And what that is, is these programming layer basically
+
+12:55.140 --> 12:58.300
+of I want to interact with this remote server
+
+12:58.300 --> 13:01.460
+and I want to start making requests
+
+13:01.460 --> 13:05.060
+that we don't necessarily care about HTML.
+
+13:05.060 --> 13:07.180
+We don't care about these webpages.
+
+13:07.180 --> 13:10.140
+We just want to be doing kind of remote computation.
+
+13:10.140 --> 13:13.460
+We want to be making these API requests out to the server,
+
+13:13.460 --> 13:18.260
+getting API responses back that we can do on top of HTTP.
+
+13:18.260 --> 13:22.140
+And oftentimes they might use the JSON content type
+
+13:22.140 --> 13:22.980
+for doing that.
+
+13:22.980 --> 13:24.500
+That's kind of why that exists.
+
+13:24.500 --> 13:27.940
+It's a very common scheme to basically be pushing data
+
+13:27.940 --> 13:30.140
+with JSON, the server can very quickly parse
+
+13:30.140 --> 13:32.660
+this complex hierarchical structure
+
+13:32.660 --> 13:36.060
+and then return complex results that aren't HTTP,
+
+13:36.060 --> 13:38.540
+that aren't meant to be viewed in the browser,
+
+13:38.540 --> 13:40.740
+or rather HTML that aren't meant to be viewed
+
+13:40.740 --> 13:43.740
+in the browser, but are instead just blobs of data
+
+13:43.740 --> 13:46.020
+that have structure to them.
+
+13:46.020 --> 13:49.260
+And that's why you might use the JSON content type.

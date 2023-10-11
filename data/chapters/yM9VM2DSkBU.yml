@@ -1,0 +1,1172 @@
+- title: Understanding URLs and Requests
+  notes:
+  - The lecture begins with an explanation of URLs and their components, namely the
+    scheme, host, port, path, query, and fragment.
+  - The scheme specifies the protocol used to access the resource, such as HTTP.
+  - The host defines where the resource is located, such as a specific server on the
+    internet.
+  - The port can be used to specify different services or programs running on the
+    server.
+  - The path identifies the specific resource we're trying to interact with.
+  - The query can provide additional information about how to interact with the resource.
+  - The fragment contains client-specific information about the resource that isn't
+    passed along to the server.
+  questions:
+  - Can you explain the different components of a URL and their functions?
+  - How does the fragment part of a URL differ from the other components?
+  transcript:
+  - id: 0
+    start: 0
+    stop: 3700
+    text: In this lecture, we're going to be talking about URLs
+  - id: 1
+    start: 3700
+    stop: 6660
+    text: and the encoding of requests.
+  - id: 2
+    start: 6660
+    stop: 10600
+    text: So a URL, as you've probably seen before
+  - id: 3
+    start: 10600
+    stop: 12460
+    text: in typing in your browser,
+  - id: 4
+    start: 12460
+    stop: 15120
+    text: is composed of a number of things.
+  - id: 5
+    start: 15120
+    stop: 18020
+    text: So it is composed of a scheme, a host, a port,
+  - id: 6
+    start: 18020
+    stop: 20400
+    text: a path, a query, and a fragment.
+  - id: 7
+    start: 20400
+    stop: 23540
+    text: So let's take as an example, this request right here,
+  - id: 8
+    start: 23540
+    stop: 26180
+    text: or rather this URL right here.
+  - id: 9
+    start: 26180
+    stop: 29260
+    text: And a URL is a uniform resource locator
+  - id: 10
+    start: 29260
+    stop: 30900
+    text: for those wondering,
+  - id: 11
+    start: 30900
+    stop: 33340
+    text: but most people call them just URLs.
+  - id: 12
+    start: 33340
+    stop: 37540
+    text: So in this case, we have some example.com
+  - id: 13
+    start: 37540
+    stop: 41220
+    text: requesting a kind of a cat.gif with some width, some height,
+  - id: 14
+    start: 41220
+    stop: 43940
+    text: and then we can pretend for this example
+  - id: 15
+    start: 43940
+    stop: 47700
+    text: that let's say we're kind of also requesting
+  - id: 16
+    start: 47700
+    stop: 52700
+    text: that the gif be played two seconds into its duration.
+  - id: 17
+    start: 54080
+    stop: 56740
+    text: So this first thing here is HTTP.
+  - id: 18
+    start: 56780
+    stop: 59540
+    text: And within the context of a URL,
+  - id: 19
+    start: 59540
+    stop: 61740
+    text: you might have a number of different protocols.
+  - id: 20
+    start: 61740
+    stop: 65700
+    text: So all sorts of protocols use a URL scheme
+  - id: 21
+    start: 65700
+    stop: 66940
+    text: that looks very similar.
+  - id: 22
+    start: 68040
+    stop: 70540
+    text: So we need to basically specify
+  - id: 23
+    start: 70540
+    stop: 74060
+    text: what is the protocol being used to access this resource?
+  - id: 24
+    start: 74060
+    stop: 75580
+    text: Well, in the case of HTTP,
+  - id: 25
+    start: 75580
+    stop: 78340
+    text: the Hypertext Transport Protocol,
+  - id: 26
+    start: 78340
+    stop: 82940
+    text: we're using HTTP as our protocol for accessing the resource.
+  - id: 27
+    start: 82940
+    stop: 84240
+    text: The next thing is the host.
+  - id: 28
+    start: 84240
+    stop: 89240
+    text: So the host defines where this resource is being held.
+  - id: 29
+    start: 90000
+    stop: 91560
+    text: So in this case, we're saying,
+  - id: 30
+    start: 91560
+    stop: 94960
+    text: hey, there's some server out there on the internet
+  - id: 31
+    start: 94960
+    stop: 99960
+    text: that we call example.com, and it holds this resource.
+  - id: 32
+    start: 100560
+    stop: 102600
+    text: Now, the next thing is the port.
+  - id: 33
+    start: 102600
+    stop: 104760
+    text: And the port is going to be,
+  - id: 34
+    start: 104760
+    stop: 107460
+    text: if we think back to the internet lecture,
+  - id: 35
+    start: 108400
+    stop: 112320
+    text: the transport layer basically defines that,
+  - id: 36
+    start: 112360
+    stop: 115760
+    text: hey, a server might have several services,
+  - id: 37
+    start: 115760
+    stop: 117760
+    text: several programs running on it,
+  - id: 38
+    start: 117760
+    stop: 120240
+    text: and each of them might be facilitating
+  - id: 39
+    start: 120240
+    stop: 121880
+    text: different network applications.
+  - id: 40
+    start: 121880
+    stop: 125320
+    text: Not all of them might be speaking HTTP.
+  - id: 41
+    start: 125320
+    stop: 130180
+    text: They might be speaking different application protocols
+  - id: 42
+    start: 130180
+    stop: 131340
+    text: on top of there.
+  - id: 43
+    start: 132720
+    stop: 135000
+    text: But in this case, we're looking at port 80,
+  - id: 44
+    start: 135000
+    stop: 136880
+    text: which is the standard HTTP protocol.
+  - id: 45
+    start: 136880
+    stop: 140820
+    text: Alternatively, we might have multiple web servers
+  - id: 46
+    start: 140820
+    stop: 142500
+    text: running on the same host.
+  - id: 47
+    start: 142500
+    stop: 144660
+    text: So for instance, we might have a web server
+  - id: 48
+    start: 144660
+    stop: 147580
+    text: running on port 80, another website,
+  - id: 49
+    start: 147580
+    stop: 151300
+    text: or web server rather, on example.com running on port 8080.
+  - id: 50
+    start: 151300
+    stop: 153740
+    text: And we might need to specify different ports
+  - id: 51
+    start: 153740
+    stop: 156900
+    text: for accessing those different web servers.
+  - id: 52
+    start: 156900
+    stop: 161060
+    text: By default though, a normal use case within the internet,
+  - id: 53
+    start: 161060
+    stop: 164140
+    text: or within the World Wide Web rather, is port 80.
+  - id: 54
+    start: 164140
+    stop: 166660
+    text: And that can be optionally left out,
+  - id: 55
+    start: 166660
+    stop: 169140
+    text: but this is the full URL scheme.
+  - id: 56
+    start: 170020
+    stop: 171620
+    text: So the next thing is the path.
+  - id: 57
+    start: 171620
+    stop: 174500
+    text: So the path identifies the specific resource
+  - id: 58
+    start: 174500
+    stop: 178780
+    text: that we're trying to either get or interact with,
+  - id: 59
+    start: 178780
+    stop: 181780
+    text: again, thinking back to get request, post request,
+  - id: 60
+    start: 181780
+    stop: 185840
+    text: the resource that we're trying to interact with.
+  - id: 61
+    start: 185840
+    stop: 187840
+    text: So in this case, cat.gif.
+  - id: 62
+    start: 187840
+    stop: 191420
+    text: The next part of the URL scheme is the query.
+  - id: 63
+    start: 191420
+    stop: 194700
+    text: So we might basically be saying,
+  - id: 64
+    start: 194700
+    stop: 198620
+    text: hey, this resource has other information
+  - id: 65
+    start: 200660
+    stop: 203300
+    text: that it might need in order to know
+  - id: 66
+    start: 203300
+    stop: 205460
+    text: how to correctly get that resource,
+  - id: 67
+    start: 205460
+    stop: 207700
+    text: or if we're interacting with that resource,
+  - id: 68
+    start: 207700
+    stop: 209940
+    text: how we want to interact with that resource.
+  - id: 69
+    start: 209940
+    stop: 212300
+    text: So for example, we can imagine that this web server
+  - id: 70
+    start: 212300
+    stop: 215860
+    text: is able to facilitate this cat.gif resource,
+  - id: 71
+    start: 215860
+    stop: 217940
+    text: and it might be able to return GIFs
+  - id: 72
+    start: 217940
+    stop: 219800
+    text: of different widths and heights.
+  - id: 73
+    start: 219800
+    stop: 221940
+    text: So in this case, we specify within the query,
+  - id: 74
+    start: 221940
+    stop: 225220
+    text: hey, I want a width of 256 and a height of 256.
+  - id: 75
+    start: 225220
+    stop: 228540
+    text: And again, it's really up to the web application
+  - id: 76
+    start: 228540
+    stop: 231820
+    text: to be how it's going to facilitate these requests,
+  - id: 77
+    start: 231820
+    stop: 234700
+    text: but this is what the standardized URL scheme
+  - id: 78
+    start: 234700
+    stop: 236740
+    text: supports for communication,
+  - id: 79
+    start: 236740
+    stop: 239560
+    text: and this is how things are standardized.
+  - id: 80
+    start: 240500
+    stop: 243100
+    text: So again, this is information that the resource can use
+  - id: 81
+    start: 243100
+    stop: 246700
+    text: for kind of figuring out a little more information
+  - id: 82
+    start: 246700
+    stop: 248460
+    text: about that resource.
+  - id: 83
+    start: 248460
+    stop: 251280
+    text: And then the last thing is the fragment.
+  - id: 84
+    start: 251280
+    stop: 253480
+    text: So the fragment actually isn't sent out
+  - id: 85
+    start: 253480
+    stop: 255600
+    text: in our networked request.
+  - id: 86
+    start: 255600
+    stop: 258240
+    text: It is client-specific information.
+  - id: 87
+    start: 258240
+    stop: 262600
+    text: So the programs that we're interacting with,
+  - id: 88
+    start: 262600
+    stop: 264560
+    text: so for instance, let's say we're using our web browser
+  - id: 89
+    start: 264560
+    stop: 266540
+    text: to facilitate this request,
+  - id: 90
+    start: 266540
+    stop: 269520
+    text: the web browser might want its own information.
+  - id: 91
+    start: 269520
+    stop: 271480
+    text: So for instance, let's say we pass this link
+  - id: 92
+    start: 271480
+    stop: 273160
+    text: along to someone else,
+  - id: 93
+    start: 273160
+    stop: 276680
+    text: and we're specifically interested in this cat.gif
+  - id: 94
+    start: 276680
+    stop: 279100
+    text: at the two-second mark within the GIF,
+  - id: 95
+    start: 279100
+    stop: 281820
+    text: and we don't want them to see the first two seconds,
+  - id: 96
+    start: 281820
+    stop: 284600
+    text: well, we can actually pass along this full URL
+  - id: 97
+    start: 284600
+    stop: 286780
+    text: with client-side information.
+  - id: 98
+    start: 286780
+    stop: 288940
+    text: In this case, we're imagining that our browser
+  - id: 99
+    start: 288940
+    stop: 292980
+    text: is going to be able to start playing the cat.gif video
+  - id: 100
+    start: 292980
+    stop: 293960
+    text: at the two-second mark.
+  - id: 101
+    start: 293960
+    stop: 298580
+    text: And this fragment component allows for a URL
+  - id: 102
+    start: 298580
+    stop: 301840
+    text: to contain client-specific information about the resource
+  - id: 103
+    start: 301840
+    stop: 304340
+    text: that isn't actually passed along to the server.
+- title: URL Encoding and Unsafe Characters
+  notes:
+  - The lecture then discusses the issue of using unsafe characters, such as spaces,
+    in URLs.
+  - Spaces and other unsafe characters can cause issues when parsing the request,
+    leading to bad requests.
+  - The solution to this problem is URL encoding, which involves replacing unsafe
+    characters with a percent sign followed by a hex character.
+  - All characters can optionally be encoded, but it's not a requirement.
+  questions:
+  - What problems can arise from using unsafe characters in URLs?
+  - How does URL encoding solve these problems?
+  transcript:
+  - id: 104
+    start: 305180
+    stop: 310180
+    text: Okay, so let's recall back to the request URI
+  - id: 105
+    start: 311820
+    stop: 316820
+    text: from the previous lecture video on RFC 1945.
+  - id: 106
+    start: 317140
+    stop: 319580
+    text: So we have this request line that's composed of our method,
+  - id: 107
+    start: 319580
+    stop: 323660
+    text: our request URI, and this HTTP version.
+  - id: 108
+    start: 323660
+    stop: 327560
+    text: So the request URI is a critical component of the URL
+  - id: 109
+    start: 327560
+    stop: 330620
+    text: and kind of gets translated in this request.
+  - id: 110
+    start: 330620
+    stop: 332580
+    text: But there's something to think about here
+  - id: 111
+    start: 332580
+    stop: 335220
+    text: when we're accessing a request.
+  - id: 112
+    start: 335220
+    stop: 338020
+    text: The thing to think about is that what happens
+  - id: 113
+    start: 338020
+    stop: 343020
+    text: if I want to get the hello space world resource?
+  - id: 114
+    start: 344140
+    stop: 346740
+    text: We have a little bit of an issue here,
+  - id: 115
+    start: 346740
+    stop: 350460
+    text: which is that if I was to go and make this request,
+  - id: 116
+    start: 350460
+    stop: 352660
+    text: the server is actually going to inform me that,
+  - id: 117
+    start: 352660
+    stop: 354940
+    text: hey, you made a bad request.
+  - id: 118
+    start: 354940
+    stop: 359940
+    text: And what that means, as we saw in the RFC 1945 lecture video
+  - id: 119
+    start: 360940
+    stop: 365660
+    text: is that you are not actually speaking valid HTTP.
+  - id: 120
+    start: 365660
+    stop: 369460
+    text: The server understands that you're asking for something,
+  - id: 121
+    start: 369460
+    stop: 371060
+    text: but it doesn't know what you're speaking
+  - id: 122
+    start: 371060
+    stop: 373920
+    text: because it can't properly parse this HTTP request
+  - id: 123
+    start: 373920
+    stop: 374760
+    text: that you've made.
+  - id: 124
+    start: 374760
+    stop: 376420
+    text: You've made a bad request.
+  - id: 125
+    start: 376420
+    stop: 380580
+    text: And the reason for that is these spaces in the request line.
+  - id: 126
+    start: 380580
+    stop: 385580
+    text: So we have method, space, request URI, space, HTTP version,
+  - id: 127
+    start: 386320
+    stop: 388460
+    text: and then carriage return line feed.
+  - id: 128
+    start: 388460
+    stop: 391140
+    text: These spaces are delimiting the start
+  - id: 129
+    start: 391140
+    stop: 393260
+    text: and the end of the request URI.
+  - id: 130
+    start: 393260
+    stop: 396340
+    text: So when we went and we put a space in there,
+  - id: 131
+    start: 396340
+    stop: 398060
+    text: the server, when it goes to parse this,
+  - id: 132
+    start: 398060
+    stop: 402580
+    text: is gonna see, hey, I'm requesting the slash hello resource.
+  - id: 133
+    start: 402580
+    stop: 405760
+    text: And then my HTTP version is world, right?
+  - id: 134
+    start: 405760
+    stop: 407860
+    text: Which isn't an HTTP version.
+  - id: 135
+    start: 407860
+    stop: 410180
+    text: And the parsing has gotten out of sync
+  - id: 136
+    start: 410180
+    stop: 412220
+    text: and it's a massive issue.
+  - id: 137
+    start: 412220
+    stop: 416460
+    text: The solution to this problem, however, is encoding.
+  - id: 138
+    start: 416460
+    stop: 420260
+    text: So we need some sort of way of basically saying,
+  - id: 139
+    start: 420260
+    stop: 423700
+    text: I want hello space world, that resource,
+  - id: 140
+    start: 423700
+    stop: 425340
+    text: because for whatever reason,
+  - id: 141
+    start: 425340
+    stop: 428740
+    text: we might imagine that we need our web application
+  - id: 142
+    start: 428740
+    stop: 432060
+    text: to facilitate web resources that have a space in it.
+  - id: 143
+    start: 432060
+    stop: 434500
+    text: There's no reason to leave them out,
+  - id: 144
+    start: 434500
+    stop: 435780
+    text: that that shouldn't be possible.
+  - id: 145
+    start: 435780
+    stop: 437420
+    text: Though, I mean, I guess in theory,
+  - id: 146
+    start: 437420
+    stop: 440200
+    text: you could imagine a protocol where you just aren't allowed
+  - id: 147
+    start: 440200
+    stop: 442260
+    text: to have resources with spaces in them.
+  - id: 148
+    start: 442260
+    stop: 446700
+    text: But fortunately, HTTP allows for resources
+  - id: 149
+    start: 446700
+    stop: 447620
+    text: with spaces in them.
+  - id: 150
+    start: 447620
+    stop: 449580
+    text: URLs can have spaces in them.
+  - id: 151
+    start: 449580
+    stop: 451860
+    text: They just must be encoded.
+  - id: 152
+    start: 451860
+    stop: 454220
+    text: So there are a number of unsafe characters,
+  - id: 153
+    start: 454220
+    stop: 455980
+    text: which includes, for instance, that space.
+  - id: 154
+    start: 455980
+    stop: 457220
+    text: And it's unsafe, as we saw,
+  - id: 155
+    start: 457220
+    stop: 459860
+    text: because when we go to parse that request,
+  - id: 156
+    start: 459860
+    stop: 462380
+    text: it's gonna throw off the parser.
+  - id: 157
+    start: 462380
+    stop: 464740
+    text: I mean, in theory, you could write a parser
+  - id: 158
+    start: 464740
+    stop: 465580
+    text: that could deal with it,
+  - id: 159
+    start: 465580
+    stop: 467820
+    text: but we want things to be very simple, quick,
+  - id: 160
+    start: 467820
+    stop: 470220
+    text: and we have defined in the standard
+  - id: 161
+    start: 470220
+    stop: 474580
+    text: that the space character is unsafe and must be encoded.
+  - id: 162
+    start: 474580
+    stop: 477540
+    text: There's also some reserved characters that must be encoded.
+  - id: 163
+    start: 477540
+    stop: 479760
+    text: And then there's also unprintable characters
+  - id: 164
+    start: 479760
+    stop: 481200
+    text: that must be encoded.
+  - id: 165
+    start: 481200
+    stop: 483380
+    text: So for example, if our resource
+  - id: 166
+    start: 483380
+    stop: 485960
+    text: had a newline character in it,
+  - id: 167
+    start: 485960
+    stop: 489440
+    text: how would we represent that in the URL?
+  - id: 168
+    start: 490380
+    stop: 494340
+    text: I mean, I guess you could imagine having this URL written out
+  - id: 169
+    start: 494340
+    stop: 497580
+    text: and then a new line in it, and it goes to a second line.
+  - id: 170
+    start: 497580
+    stop: 502020
+    text: It'd be a little strange looking, a little confusing.
+  - id: 171
+    start: 502020
+    stop: 504820
+    text: It could work, but according to the standard,
+  - id: 172
+    start: 504820
+    stop: 508260
+    text: those are unprintable characters and they must be encoded.
+  - id: 173
+    start: 509900
+    stop: 513140
+    text: Optionally, though, all characters may be encoded.
+  - id: 174
+    start: 513140
+    stop: 516180
+    text: So if you want to encode, let's say, an A,
+  - id: 175
+    start: 517460
+    stop: 518740
+    text: you're free to do so.
+  - id: 176
+    start: 518740
+    stop: 521400
+    text: It's just not a requirement that it be encoded.
+  - id: 177
+    start: 521400
+    stop: 524260
+    text: So what do these encodings look like then?
+  - id: 178
+    start: 524260
+    stop: 526860
+    text: Well, the way that these characters are encoded
+  - id: 179
+    start: 526860
+    stop: 528860
+    text: is that we have a percent sign
+  - id: 180
+    start: 528860
+    stop: 532020
+    text: followed by a hex character followed by a hex character.
+  - id: 181
+    start: 532020
+    stop: 535260
+    text: So we're going off of the ASCII chart here on the right
+  - id: 182
+    start: 535260
+    stop: 538580
+    text: for determining what those hex character values are.
+  - id: 183
+    start: 538580
+    stop: 542780
+    text: And if we look here at space in,
+  - id: 184
+    start: 542780
+    stop: 544660
+    text: let's see here, where is the space character?
+  - id: 185
+    start: 544660
+    stop: 548420
+    text: In the top row, second column, we have our,
+  - id: 186
+    start: 548420
+    stop: 552060
+    text: or third column rather, we have the space character
+  - id: 187
+    start: 552060
+    stop: 555700
+    text: and its hex value in ASCII is two zero.
+  - id: 188
+    start: 555700
+    stop: 558280
+    text: So the way that we URL encode that character
+  - id: 189
+    start: 558280
+    stop: 560900
+    text: is that we say it is percent two zero.
+  - id: 190
+    start: 560900
+    stop: 563620
+    text: Alternatively, pound is percent two three,
+  - id: 191
+    start: 563620
+    stop: 567500
+    text: slash is percent two F, question mark is percent three F.
+  - id: 192
+    start: 567500
+    stop: 570740
+    text: And again, we can optionally choose to encode
+  - id: 193
+    start: 570740
+    stop: 573660
+    text: any of the characters using this URL encoding scheme.
+  - id: 194
+    start: 573660
+    stop: 576300
+    text: We can do percent four one for capital A.
+  - id: 195
+    start: 576300
+    stop: 577780
+    text: So then now let's see what that looks like
+  - id: 196
+    start: 577780
+    stop: 580100
+    text: when we make a correctly formed request
+  - id: 197
+    start: 580100
+    stop: 582600
+    text: for the hello space world resource.
+  - id: 198
+    start: 583780
+    stop: 585260
+    text: Instead of putting a space there,
+  - id: 199
+    start: 585820
+    stop: 586980
+    text: we put that percent two zero.
+  - id: 200
+    start: 586980
+    stop: 590580
+    text: We've correctly URL encoded our request
+  - id: 201
+    start: 590580
+    stop: 593540
+    text: and now the web server is happy with us
+  - id: 202
+    start: 593540
+    stop: 598180
+    text: and is happy to return to us the hello space world resource.
+- title: Different Encoding Methods and Content Types
+  notes:
+  - The lecture concludes with a discussion of different encoding methods and content
+    types for servicing requests.
+  - The lecture explains two content types: form URL encoded and JSON encoded.
+  - Form URL encoded content type represents each field with its key and value separated
+    by an equal sign, with additional values separated by an ampersand.
+  - JSON encoded content type allows for more structured data to be sent to a server,
+    with keys and values represented in a specific structure.
+  - The use cases for both vary, and it's up to the web application to determine what
+    content types it will accept.
+  questions:
+  - What are the differences between form URL encoded and JSON encoded content types?
+  - Can you give an example of a situation where you might choose to use one content
+    type over the other?
+  transcript:
+  - id: 203
+    start: 598180
+    stop: 602540
+    text: Okay, so there are a number of encoding methods.
+  - id: 204
+    start: 602540
+    stop: 606620
+    text: So we were looking there at the URL encoding,
+  - id: 205
+    start: 606620
+    stop: 611500
+    text: but there's a number of content types for servicing requests
+  - id: 206
+    start: 611500
+    stop: 614860
+    text: especially in the context of let's say posting data.
+  - id: 207
+    start: 615420
+    stop: 618220
+    text: So we saw earlier in a previous lecture video
+  - id: 208
+    start: 618220
+    stop: 623220
+    text: that we might want to have some form on our website
+  - id: 209
+    start: 623380
+    stop: 626900
+    text: in which we're specifying, hey, my name is Connor
+  - id: 210
+    start: 626900
+    stop: 629980
+    text: and I want to post the fact that my name is Connor
+  - id: 211
+    start: 629980
+    stop: 631220
+    text: to the greet resource.
+  - id: 212
+    start: 631220
+    stop: 634860
+    text: This is kind of what this request here is specifying.
+  - id: 213
+    start: 634860
+    stop: 638180
+    text: So in this case, we declared to the web server,
+  - id: 214
+    start: 638180
+    stop: 640980
+    text: hey, we're using a content type of application
+  - id: 215
+    start: 640980
+    stop: 644540
+    text: X www form URL encoded.
+  - id: 216
+    start: 645220
+    stop: 646820
+    text: And what that means and what that structure looks like
+  - id: 217
+    start: 646820
+    stop: 649140
+    text: is that we can have a number of fields
+  - id: 218
+    start: 650540
+    stop: 655140
+    text: where each field is represented with its key.
+  - id: 219
+    start: 655140
+    stop: 657420
+    text: So in this case, name, and then its value,
+  - id: 220
+    start: 657420
+    stop: 658380
+    text: in this case, Connor,
+  - id: 221
+    start: 658380
+    stop: 661140
+    text: and they are separated with an equal sign.
+  - id: 222
+    start: 661140
+    stop: 664540
+    text: We could also have more values in there
+  - id: 223
+    start: 664540
+    stop: 667860
+    text: and those other values would be separated with an ampersand.
+  - id: 224
+    start: 669100
+    stop: 670620
+    text: Okay, alternatively though,
+  - id: 225
+    start: 670660
+    stop: 675660
+    text: we don't have to just use a form URL encoded content type.
+  - id: 226
+    start: 675900
+    stop: 679900
+    text: We can also use a JSON encoded content type
+  - id: 227
+    start: 679900
+    stop: 680820
+    text: for speaking to it.
+  - id: 228
+    start: 680820
+    stop: 682540
+    text: And there are reasons why you might choose
+  - id: 229
+    start: 682540
+    stop: 684460
+    text: one over the other.
+  - id: 230
+    start: 684460
+    stop: 689020
+    text: In this case, JSON is JavaScript object notation.
+  - id: 231
+    start: 689020
+    stop: 690660
+    text: So this allows us to send
+  - id: 232
+    start: 690660
+    stop: 694180
+    text: kind of slightly more structured data at a server.
+  - id: 233
+    start: 694180
+    stop: 696180
+    text: And in this case, it looks something like this
+  - id: 234
+    start: 696180
+    stop: 697580
+    text: where we have some curly braces,
+  - id: 235
+    start: 697580
+    stop: 700220
+    text: we specify our key within quotes,
+  - id: 236
+    start: 700820
+    stop: 703660
+    text: and then we say that we have this string object Connor
+  - id: 237
+    start: 703660
+    stop: 707300
+    text: after a colon, and this is the structure of JSON.
+  - id: 238
+    start: 708540
+    stop: 711300
+    text: The use cases for both vary.
+  - id: 239
+    start: 711300
+    stop: 713940
+    text: It's up to the web application
+  - id: 240
+    start: 713940
+    stop: 717860
+    text: for what kinds of content types it's gonna be looking for.
+  - id: 241
+    start: 717860
+    stop: 720060
+    text: So some might have, for example,
+  - id: 242
+    start: 720060
+    stop: 723620
+    text: that form URL encoded as a result of the fact
+  - id: 243
+    start: 723620
+    stop: 726740
+    text: that you're interacting with a form on a webpage
+  - id: 244
+    start: 726740
+    stop: 729540
+    text: and you go and let's say, click some submit button.
+  - id: 245
+    start: 729540
+    stop: 730900
+    text: So you can imagine a form
+  - id: 246
+    start: 730900
+    stop: 733100
+    text: where you're asked to type in your name
+  - id: 247
+    start: 733100
+    stop: 734460
+    text: and then you hit submit,
+  - id: 248
+    start: 734460
+    stop: 738900
+    text: and it posts as a form URL encoded content type
+  - id: 249
+    start: 738900
+    stop: 740540
+    text: to the server and the server is looking
+  - id: 250
+    start: 740540
+    stop: 742940
+    text: for that content type and it's gonna go through
+  - id: 251
+    start: 742940
+    stop: 744260
+    text: and understand that.
+  - id: 252
+    start: 744260
+    stop: 746100
+    text: On the other hand, you might have
+  - id: 253
+    start: 748420
+    stop: 750900
+    text: more hierarchical data that the server
+  - id: 254
+    start: 750900
+    stop: 752380
+    text: wants to be able to handle.
+  - id: 255
+    start: 752380
+    stop: 755220
+    text: And we might be building up these complex objects
+  - id: 256
+    start: 755220
+    stop: 756580
+    text: that we want to send to the server
+  - id: 257
+    start: 756580
+    stop: 759260
+    text: and you might choose to use application JSON.
+  - id: 258
+    start: 759820
+    stop: 763500
+    text: One common paradigm within the world wide web,
+  - id: 259
+    start: 763500
+    stop: 768500
+    text: within the web is JSON RESTful APIs.
+  - id: 260
+    start: 768500
+    stop: 770260
+    text: You might have heard of that.
+  - id: 261
+    start: 770260
+    stop: 775140
+    text: And what that is, is these programming layer basically
+  - id: 262
+    start: 775140
+    stop: 778300
+    text: of I want to interact with this remote server
+  - id: 263
+    start: 778300
+    stop: 781460
+    text: and I want to start making requests
+  - id: 264
+    start: 781460
+    stop: 785060
+    text: that we don't necessarily care about HTML.
+  - id: 265
+    start: 785060
+    stop: 787180
+    text: We don't care about these webpages.
+  - id: 266
+    start: 787180
+    stop: 790140
+    text: We just want to be doing kind of remote computation.
+  - id: 267
+    start: 790140
+    stop: 793460
+    text: We want to be making these API requests out to the server,
+  - id: 268
+    start: 793460
+    stop: 798260
+    text: getting API responses back that we can do on top of HTTP.
+  - id: 269
+    start: 798260
+    stop: 802140
+    text: And oftentimes they might use the JSON content type
+  - id: 270
+    start: 802140
+    stop: 802980
+    text: for doing that.
+  - id: 271
+    start: 802980
+    stop: 804500
+    text: That's kind of why that exists.
+  - id: 272
+    start: 804500
+    stop: 807940
+    text: It's a very common scheme to basically be pushing data
+  - id: 273
+    start: 807940
+    stop: 810140
+    text: with JSON, the server can very quickly parse
+  - id: 274
+    start: 810140
+    stop: 812660
+    text: this complex hierarchical structure
+  - id: 275
+    start: 812660
+    stop: 816060
+    text: and then return complex results that aren't HTTP,
+  - id: 276
+    start: 816060
+    stop: 818540
+    text: that aren't meant to be viewed in the browser,
+  - id: 277
+    start: 818540
+    stop: 820740
+    text: or rather HTML that aren't meant to be viewed
+  - id: 278
+    start: 820740
+    stop: 823740
+    text: in the browser, but are instead just blobs of data
+  - id: 279
+    start: 823740
+    stop: 826020
+    text: that have structure to them.
+  - id: 280
+    start: 826020
+    stop: 829260
+    text: 'And that''s why you might use the JSON content type.
+
+      '

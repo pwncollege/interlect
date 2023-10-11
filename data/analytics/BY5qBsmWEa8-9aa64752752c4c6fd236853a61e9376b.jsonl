@@ -1,0 +1,16 @@
+{"when": 116, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T15:46:29.470666+00:00"}
+{"when": 90159, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T15:46:39.569905+00:00"}
+{"when": 94112, "chapter": 1, "event": "message", "type": "assessment", "text": "What is the avalanche effect in hashing?", "datetime": "2023-10-11T15:50:33.238839+00:00"}
+{"when": 94216, "chapter": 0, "event": "video", "type": "paused", "datetime": "2023-10-11T15:50:33.361962+00:00"}
+{"when": 94216, "chapter": 0, "event": "message", "type": "user", "text": "The avalanche effect is when a small change in input produces a massive change in output", "datetime": "2023-10-11T15:50:57.453081+00:00"}
+{"when": 94216, "chapter": 0, "event": "message", "type": "ai", "text": "That's correct! Can you give an example of how a small change in the input can affect the output in a hash function?", "datetime": "2023-10-11T15:51:00.425878+00:00"}
+{"when": 94216, "chapter": 0, "event": "message", "type": "user", "text": "What do you mean", "datetime": "2023-10-11T15:51:11.060273+00:00"}
+{"when": 94216, "chapter": 0, "event": "message", "type": "ai", "text": "Sure, let me clarify. In the lecture, I mentioned that if we change \"lorem ipsum\" to \"morum ipsum\" and hash both phrases, the resulting hashes would be dramatically different, despite the input phrases being very similar. This is an example of the avalanche effect. Can you think of another example where a small change in the input would result in a dramatically different hash?", "datetime": "2023-10-11T15:51:17.019702+00:00"}
+{"when": 94216, "chapter": 0, "event": "message", "type": "user", "text": "All inputs", "datetime": "2023-10-11T15:51:31.689296+00:00"}
+{"when": 94246, "chapter": null, "event": "video", "type": "playing", "datetime": "2023-10-11T15:51:36.469638+00:00"}
+{"when": 94257, "chapter": null, "event": "message", "type": "ai", "text": "That's right! Any small change in the input, even a single character, will result in a dramatically different output hash. This is a crucial property of hash functions and is part of what makes them so useful in cryptography. Good job!\n", "success": true, "datetime": "2023-10-11T15:51:36.480271+00:00"}
+{"when": 98443, "chapter": 1, "event": "video", "type": "paused", "datetime": "2023-10-11T15:51:40.676019+00:00"}
+{"when": 98474, "chapter": 1, "event": "video", "type": "playing", "datetime": "2023-10-11T15:52:58.590110+00:00"}
+{"when": 48618, "chapter": 0, "event": "video", "type": "playing", "datetime": "2023-10-11T15:53:33.581817+00:00"}
+{"when": 263674, "chapter": 1, "event": "video", "type": "playing", "datetime": "2023-10-11T15:53:39.592112+00:00"}
+{"when": 296264, "chapter": 1, "event": "video", "type": "paused", "datetime": "2023-10-11T15:54:12.192190+00:00"}
